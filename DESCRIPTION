@@ -1,0 +1,29 @@
+Package: invertiforms
+Title: Intervible transforms for matrix valued data
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Alex",
+           family = "Hayes",
+           role = c("aut", "cre"),
+           email = "alexpghayes@gmail.com",
+           comment = c(ORCID = "0000-0002-4985-5160"))
+Description: Provides composable invertible transforms for
+    (sparse) matrices.
+License: MIT + file LICENSE
+Depends: 
+    Matrix
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1.9000
+Collate: 
+    's4-generics.R'
+    'NormalizedLaplacian.R'
+    'PerturbedLaplacian.R'
+    'RegularizedLaplacian.R'
+    'invertiforms-package.R'
+    'utils.R'
+Imports: 
+    sparseLRMatrix (>= 0.0.0.9000)
+Remotes: 
+    RoheLab/sparseLRMatrix

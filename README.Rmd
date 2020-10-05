@@ -1,0 +1,68 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# invertiforms
+
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+<!-- badges: end -->
+
+The goal of invertiforms is to ...
+
+## Installation
+
+You can install the released version of invertiforms from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("invertiforms")
+```
+
+```{r}
+library(jiandjindata)
+
+citation_graph
+
+A <- igraph::get.adjacency(citation_graph)
+
+L <- normalized_graph_laplacian(A)
+transform(L)
+
+str(L)
+
+invert(transform(L), L)
+
+all.equal(A, invert(transform(L), L))
+```
+
+
+
+## composable
+
+## Current transforms
+
+- row center
+- column center
+- double center
+- normalized graph laplacian
+- regularized graph laplacian
+- perturbed graph laplacian
+
+
+
+## related work
+
+- separate transformer based objects like recipes
+- Incomplete S4 class in softImpute
+
