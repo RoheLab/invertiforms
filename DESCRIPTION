@@ -27,3 +27,5 @@ Imports:
     sparseLRMatrix (>= 0.0.0.9000)
 Remotes: 
     RoheLab/sparseLRMatrix
+URL: https://github.com/RoheLab/invertiforms
+BugReports: https://github.com/RoheLab/invertiforms/issues
