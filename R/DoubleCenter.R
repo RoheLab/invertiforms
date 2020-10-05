@@ -10,7 +10,6 @@
 #'
 #' @include s4-generics.R
 #'
-#' @examples
 setClass(
   "DoubleCenter",
   contains = "Invertiform",
@@ -67,13 +66,13 @@ setMethod(
 
     U <- cbind(
       -iform@row_means,
-      rep(1, length(row_means)),
+      rep(1, length(iform@row_means)),
       iform@overall_mean * rep(1, length(iform@row_means))
     )
 
     V <- cbind(
       rep(1, length(iform@col_means)),
-      -col_means,
+      -iform@col_means,
       rep(1, length(iform@col_means))
     )
 
@@ -90,13 +89,13 @@ setMethod(
 
     U <- cbind(
       -iform@row_means,
-      rep(1, length(row_means)),
+      rep(1, length(iform@row_means)),
       iform@overall_mean * rep(1, length(iform@row_means))
     )
 
     V <- cbind(
       rep(1, length(iform@col_means)),
-      -col_means,
+      -iform@col_means,
       rep(1, length(iform@col_means))
     )
 

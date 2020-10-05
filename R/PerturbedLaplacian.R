@@ -12,7 +12,6 @@
 #' @export
 #' @include s4-generics.R
 #'
-#' @examples
 setClass(
   "PerturbedLaplacian",
   contains = "Invertiform",

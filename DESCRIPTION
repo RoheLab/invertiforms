@@ -17,7 +17,8 @@ Depends:
 Imports: 
     sparseLRMatrix (>= 0.0.0.9000)
 Suggests: 
-    covr
+    covr,
+    testthat
 Remotes: 
     RoheLab/sparseLRMatrix
 Encoding: UTF-8
@@ -26,6 +27,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1.9000
 Collate: 
     's4-generics.R'
+    'DoubleCenter.R'
     'NormalizedLaplacian.R'
     'PerturbedLaplacian.R'
     'RegularizedLaplacian.R'

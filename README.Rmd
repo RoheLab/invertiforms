@@ -32,20 +32,23 @@ install.packages("invertiforms")
 ```
 
 ```{r}
-library(jiandjindata)
+library(invertiforms)
 
-citation_graph
+library(igraph)
+library(igraphdata)
 
-A <- igraph::get.adjacency(citation_graph)
+data("karate", package = "igraphdata")
 
-L <- normalized_graph_laplacian(A)
-transform(L)
+A <- get.adjacency(karate)
 
-str(L)
+iform <- NormalizedLaplacian(A)
 
-invert(transform(L), L)
+L <- transform(iform, A)
+L
 
-all.equal(A, invert(transform(L), L))
+A_recovered <- inverse_transform(iform, L)
+
+all.equal(A, A_recovered)
 ```
 
 
