@@ -10,8 +10,16 @@ Authors@R:
 Description: Provides composable invertible transforms for
     (sparse) matrices.
 License: MIT + file LICENSE
+URL: https://github.com/RoheLab/invertiforms
+BugReports: https://github.com/RoheLab/invertiforms/issues
 Depends: 
     Matrix
+Imports: 
+    sparseLRMatrix (>= 0.0.0.9000)
+Suggests: 
+    covr
+Remotes: 
+    RoheLab/sparseLRMatrix
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
@@ -23,9 +31,3 @@ Collate:
     'RegularizedLaplacian.R'
     'invertiforms-package.R'
     'utils.R'
-Imports: 
-    sparseLRMatrix (>= 0.0.0.9000)
-Remotes: 
-    RoheLab/sparseLRMatrix
-URL: https://github.com/RoheLab/invertiforms
-BugReports: https://github.com/RoheLab/invertiforms/issues
