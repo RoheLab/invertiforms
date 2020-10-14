@@ -3,17 +3,23 @@
 \name{RegularizedLaplacian}
 \alias{RegularizedLaplacian}
 \alias{transform,RegularizedLaplacian,sparseMatrix-method}
+\alias{transform,RegularizedLaplacian,sparseLRMatrix-method}
 \alias{inverse_transform,RegularizedLaplacian,sparseMatrix-method}
+\alias{inverse_transform,RegularizedLaplacian,vsp_fa-method}
 \title{Title}
 \usage{
 RegularizedLaplacian(A, tau_row = NULL, tau_col = NULL)
 
 \S4method{transform}{RegularizedLaplacian,sparseMatrix}(iform, A)
 
+\S4method{transform}{RegularizedLaplacian,sparseLRMatrix}(iform, A)
+
 \S4method{inverse_transform}{RegularizedLaplacian,sparseMatrix}(iform, A)
+
+\S4method{inverse_transform}{RegularizedLaplacian,vsp_fa}(iform, A)
 }
 \arguments{
-\item{A}{TODO}
+\item{A}{A \code{\link[Matrix:Matrix]{Matrix::Matrix()}} or \code{\link[sparseLRMatrix:sparseLRMatrix]{sparseLRMatrix::sparseLRMatrix()}} object.}
 
 \item{iform}{TODO}
 }

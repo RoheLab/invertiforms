@@ -29,7 +29,7 @@ setClass(
 #' Title
 #'
 #' @param iform TODO
-#' @param A TODO
+#' @param A A [Matrix::Matrix()] or [sparseLRMatrix::sparseLRMatrix()] object.
 #'
 #' @return TODO
 #' @export
@@ -62,8 +62,29 @@ RegularizedLaplacian <- function(A, tau_row = NULL, tau_col = NULL) {
   #
   #   (2) Matrix::rowSums() and rowSums() are different
 
-  rsA <- Matrix::rowSums(A * sign(A))  # (absolute) out-degree
-  csA <- Matrix::colSums(A * sign(A))  # (absolute) in-degree
+  if (inherits(A, "sparseLRMatrix")) {
+
+    rsA <- Matrix::rowSums(A@sparse * sign(A@sparse))  # (absolute) out-degree
+    csA <- Matrix::colSums(A@sparse * sign(A@sparse))  # (absolute) in-degree
+
+    # do the low rank matrix expansion row by row to avoid instantiating
+    # a huge dense matrix
+
+    for (i in 1:nrow(A@sparse)) {
+      rsA[i] <- rsA[i] +
+        sum(abs(Matrix::tcrossprod(A@U[i, , drop = FALSE], A@V)))
+    }
+
+    for (j in 1:ncol(A@sparse)) {
+      csA[j] <- csA[j] +
+        sum(abs(Matrix::tcrossprod(A@U, A@V[j, , drop = FALSE])))
+    }
+  } else if (inherits(A, "sparseMatrix")) {
+    rsA <- Matrix::rowSums(A * sign(A))  # (absolute) out-degree
+    csA <- Matrix::colSums(A * sign(A))  # (absolute) in-degree
+  } else {
+    .NotYetImplemented()
+  }
 
   if (is.null(tau_row)) {
     tau_row <- mean(rsA)
@@ -105,6 +126,25 @@ setMethod(
 #' @rdname RegularizedLaplacian
 #' @export
 setMethod(
+  "transform",
+  signature = c("RegularizedLaplacian", "sparseLRMatrix"),
+  definition = function(iform, A) {
+    D_row <- Diagonal(n = nrow(A), x = 1 / sqrt(iform@rsA + iform@tau_row))
+    D_col <- Diagonal(n = ncol(A), x = 1 / sqrt(iform@csA + iform@tau_col))
+
+    sparseLRMatrix::sparseLRMatrix(
+      sparse = D_row %*% A@sparse %*% D_col,
+      U = D_row %*% A@U,
+      V = D_col %*% A@V
+    )
+
+  }
+)
+
+
+#' @rdname RegularizedLaplacian
+#' @export
+setMethod(
   "inverse_transform",
   signature = c("RegularizedLaplacian", "sparseMatrix"),
   definition = function(iform, A) {
@@ -114,4 +154,25 @@ setMethod(
   }
 )
 
+# trick to allow S4 dispatch to dispatch on S3 class
+setOldClass("vsp_fa")
 
+#' @rdname RegularizedLaplacian
+#' @export
+setMethod(
+  "inverse_transform",
+  signature = c("RegularizedLaplacian", "vsp_fa"),
+  definition = function(iform, A) {
+    fa <- A
+
+    n <- nrow(fa$u)
+    d <- nrow(fa$v)
+
+    D_row_inv <- Diagonal(n = n, x = sqrt(iform@rsA + iform@tau_row))
+    D_col_inv <- Diagonal(n = d, x = sqrt(iform@csA + iform@tau_col))
+
+    fa$Z <- D_row_inv %*% fa$Z
+    fa$Y <- D_col_inv %*% fa$Y
+    fa
+  }
+)

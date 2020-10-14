@@ -110,4 +110,32 @@ setMethod(
   }
 )
 
+# trick to allow S4 dispatch to dispatch on S3 class
+setOldClass("vsp_fa")
+
+#' @rdname DoubleCenter
+#' @export
+setMethod(
+  "inverse_transform",
+  signature = c("DoubleCenter", "vsp_fa"),
+  definition = function(iform, A) {
+
+    # TODO: this needs major sanity checking
+    fa <- A
+
+    n <- nrow(fa$u)
+    d <- nrow(fa$v)
+
+    D_inv <- Diagonal(n = length(fa$d), x = 1 / fa$d)
+
+    mu_z <- sqrt(n) * iform@col_means %*% fa$v %*% D_inv %*% fa$R_U
+    mu_y <- sqrt(d) * iform@row_means %*% fa$u %*% D_inv %*% fa$R_V
+
+    fa$Z <- sweep(fa$Z, 2, mu_z, "+")
+    fa$Y <- sweep(fa$Y, 2, mu_y, "+")
+
+    fa
+  }
+)
+
 

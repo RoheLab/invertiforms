@@ -4,6 +4,7 @@
 \alias{DoubleCenter}
 \alias{transform,DoubleCenter,sparseMatrix-method}
 \alias{inverse_transform,DoubleCenter,sparseLRMatrix-method}
+\alias{inverse_transform,DoubleCenter,vsp_fa-method}
 \title{Title}
 \usage{
 DoubleCenter(A, tau = NULL)
@@ -11,6 +12,8 @@ DoubleCenter(A, tau = NULL)
 \S4method{transform}{DoubleCenter,sparseMatrix}(iform, A)
 
 \S4method{inverse_transform}{DoubleCenter,sparseLRMatrix}(iform, A)
+
+\S4method{inverse_transform}{DoubleCenter,vsp_fa}(iform, A)
 }
 \arguments{
 \item{A}{TODO}
