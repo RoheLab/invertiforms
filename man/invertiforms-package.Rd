@@ -12,13 +12,14 @@ Provides composable invertible transforms for
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://rohelab.github.io/invertiforms}
   \item \url{https://github.com/RoheLab/invertiforms}
   \item Report bugs at \url{https://github.com/RoheLab/invertiforms/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Alex Hayes \email{alexpghayes@gmail.com} (\href{https://orcid.org/0000-0002-4985-5160}{ORCID})
+\strong{Maintainer}: Alex Hayes \email{alexpghayes@gmail.com} (\href{https://orcid.org/0000-0002-4985-5160}{ORCID}) [copyright holder]
 
 }
 \keyword{internal}

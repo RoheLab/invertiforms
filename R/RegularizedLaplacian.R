@@ -8,7 +8,7 @@
 #' @slot tau_choice_row character.
 #' @slot tau_choice_col character.
 #'
-#' @return
+#' @return TODO
 #' @export
 #' @include s4-generics.R
 #'
@@ -28,8 +28,10 @@ setClass(
 
 #' Title
 #'
-#' @param iform TODO
 #' @param A A [Matrix::Matrix()] or [sparseLRMatrix::sparseLRMatrix()] object.
+#' @param tau_row TODO
+#' @param tau_col TODO
+#' @param iform TODO
 #'
 #' @return TODO
 #' @export

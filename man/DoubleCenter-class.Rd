@@ -5,7 +5,7 @@
 \alias{DoubleCenter-class}
 \title{Title}
 \value{
-
+TODO
 }
 \description{
 Title

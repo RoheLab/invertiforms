@@ -3,7 +3,7 @@
 #' @slot rsA numeric.
 #' @slot csA numeric.
 #'
-#' @return
+#' @return TODO
 #' @export
 #'
 #' @include s4-generics.R

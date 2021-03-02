@@ -5,7 +5,7 @@
 #' @slot col_means numeric.
 #' @slot overall_mean numeric.
 #'
-#' @return
+#' @return TODO
 #' @export
 #'
 #' @include s4-generics.R
@@ -22,13 +22,17 @@ setClass(
 
 #' Title
 #'
-#' @param iform TODO
-#' @param A TODO
+#' Convience constructor for [DoubleCenter-class]
 #'
-#' @return TODO
+#' @param A TODO
+#' @param iform TODO
+#'
+#' @return `DoubleCenter` creates a [DoubleCenter-class].
+#'
+#'   - `transform()` applies the double centering operation to a matrix
+#'
 #' @export
 #'
-#' @rdname DoubleCenter
 #' @examples
 #'
 #' library(igraph)
@@ -47,17 +51,17 @@ setClass(
 #'
 #' all.equal(A, A_recovered)
 #'
-DoubleCenter <- function(A, tau = NULL) {
+DoubleCenter <- function(A) {
   new(
     "DoubleCenter",
-    row_means = Matrix::rowMeans(A),
-    col_means = Matrix::colMeans(A),
-    overall_mean = Matrix::mean(A)
+    row_means = rowMeans(A),
+    col_means = colMeans(A),
+    overall_mean = mean(A)
   )
 }
 
+
 #' @rdname DoubleCenter
-#' @importFrom sparseLRMatrix sparseLRMatrix
 #' @export
 setMethod(
   "transform",

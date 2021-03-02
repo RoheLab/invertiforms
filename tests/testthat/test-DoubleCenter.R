@@ -32,19 +32,3 @@ test_that("DoubleCenter recovery", {
     all.equal(A, A_recovered)
   )
 })
-
-library(vsp)
-
-iform <- DoubleCenter(A)
-
-A_tilde <- transform(iform, A)
-
-vsp(A_tilde, 5)
-
-
-
-iform <- RegularizedLaplacian(A)
-
-A_tilde <- transform(iform, A)
-
-vsp(A_tilde, 5)

@@ -21,6 +21,10 @@ RegularizedLaplacian(A, tau_row = NULL, tau_col = NULL)
 \arguments{
 \item{A}{A \code{\link[Matrix:Matrix]{Matrix::Matrix()}} or \code{\link[sparseLRMatrix:sparseLRMatrix]{sparseLRMatrix::sparseLRMatrix()}} object.}
 
+\item{tau_row}{TODO}
+
+\item{tau_col}{TODO}
+
 \item{iform}{TODO}
 }
 \value{

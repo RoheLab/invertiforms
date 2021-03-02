@@ -4,25 +4,18 @@
 \name{PerturbedLaplacian-class}
 \alias{PerturbedLaplacian-class}
 \title{Title}
-\value{
-
-}
 \description{
 Title
 }
 \section{Slots}{
 
 \describe{
-\item{\code{tau_row}}{numeric.}
-
-\item{\code{tau_col}}{numeric.}
+\item{\code{tau}}{numeric.}
 
 \item{\code{rsA}}{numeric.}
 
 \item{\code{csA}}{numeric.}
 
-\item{\code{tau_choice_row}}{character.}
-
-\item{\code{tau_choice_col}}{character.}
+\item{\code{tau_choice}}{character.}
 }}
 

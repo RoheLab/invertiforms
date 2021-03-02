@@ -1,14 +1,11 @@
 
 #' Title
 #'
-#' @slot tau_row numeric.
-#' @slot tau_col numeric.
+#' @slot tau numeric.
 #' @slot rsA numeric.
 #' @slot csA numeric.
-#' @slot tau_choice_row character.
-#' @slot tau_choice_col character.
+#' @slot tau_choice character.
 #'
-#' @return
 #' @export
 #' @include s4-generics.R
 #'
@@ -26,8 +23,9 @@ setClass(
 
 #' Title
 #'
-#' @param iform TODO
 #' @param A TODO
+#' @param tau TODO
+#' @param iform TODO
 #'
 #' @return TODO
 #' @export
@@ -47,9 +45,10 @@ setClass(
 #' L <- transform(iform, A)
 #' L
 #'
+#' \dontrun{
 #' A_recovered <- inverse_transform(iform, L)
-#'
 #' all.equal(A, A_recovered)
+#' }
 #'
 PerturbedLaplacian <- function(A, tau = NULL) {
 

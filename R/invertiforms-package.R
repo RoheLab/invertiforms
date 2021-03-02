@@ -1,4 +1,7 @@
 #' @keywords internal
+#' @import Matrix
+#' @import methods
+#' @importFrom sparseLRMatrix sparseLRMatrix
 "_PACKAGE"
 
 # The following block is used by usethis to automatically manage

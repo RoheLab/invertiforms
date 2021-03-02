@@ -15,6 +15,8 @@ PerturbedLaplacian(A, tau = NULL)
 \arguments{
 \item{A}{TODO}
 
+\item{tau}{TODO}
+
 \item{iform}{TODO}
 }
 \value{
@@ -37,8 +39,9 @@ iform <- PerturbedLaplacian(A)
 L <- transform(iform, A)
 L
 
+\dontrun{
 A_recovered <- inverse_transform(iform, L)
-
 all.equal(A, A_recovered)
+}
 
 }

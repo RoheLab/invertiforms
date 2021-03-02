@@ -5,7 +5,7 @@
 \alias{NormalizedLaplacian-class}
 \title{Title}
 \value{
-
+TODO
 }
 \description{
 Title

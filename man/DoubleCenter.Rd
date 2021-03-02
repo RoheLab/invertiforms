@@ -7,7 +7,7 @@
 \alias{inverse_transform,DoubleCenter,vsp_fa-method}
 \title{Title}
 \usage{
-DoubleCenter(A, tau = NULL)
+DoubleCenter(A)
 
 \S4method{transform}{DoubleCenter,sparseMatrix}(iform, A)
 
@@ -21,10 +21,13 @@ DoubleCenter(A, tau = NULL)
 \item{iform}{TODO}
 }
 \value{
-TODO
+\code{DoubleCenter} creates a \linkS4class{DoubleCenter}.
+\itemize{
+\item \code{transform()} applies the double centering operation to a matrix
+}
 }
 \description{
-Title
+Convience constructor for \linkS4class{DoubleCenter}
 }
 \examples{
 
