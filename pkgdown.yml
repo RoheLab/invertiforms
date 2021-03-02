@@ -2,5 +2,8 @@ pandoc: 2.7.3
 pkgdown: 1.6.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2020-10-14T19:49Z
+last_built: 2021-03-02T19:57Z
+urls:
+  reference: https://rohelab.github.io/invertiforms/reference
+  article: https://rohelab.github.io/invertiforms/articles
 

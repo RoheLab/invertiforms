@@ -80,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -91,7 +91,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/RoheLab/invertiforms/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -120,10 +120,10 @@
     <pre class="usage"><span class='fu'>NormalizedLaplacian</span><span class='op'>(</span><span class='va'>A</span><span class='op'>)</span>
 
 <span class='co'># S4 method for NormalizedLaplacian,sparseMatrix</span>
-<span class='fu'><a href='https://rdrr.io/r/base/transform.html'>transform</a></span><span class='op'>(</span><span class='va'>iform</span>, <span class='va'>A</span><span class='op'>)</span>
+<span class='fu'><a href='transform.html'>transform</a></span><span class='op'>(</span><span class='va'>iform</span>, <span class='va'>A</span><span class='op'>)</span>
 
 <span class='co'># S4 method for NormalizedLaplacian,sparseMatrix</span>
-<span class='fu'>inverse_transform</span><span class='op'>(</span><span class='va'>iform</span>, <span class='va'>A</span><span class='op'>)</span></pre>
+<span class='fu'><a href='inverse_transform.html'>inverse_transform</a></span><span class='op'>(</span><span class='va'>iform</span>, <span class='va'>A</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -144,22 +144,231 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>igraph</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in library(igraph): there is no package called ‘igraph’</span></div><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>igraphdata</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in library(igraphdata): there is no package called ‘igraphdata’</span></div><div class='input'>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://igraph.org'>igraph</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://igraph.org'>igraphdata</a></span><span class='op'>)</span>
+
 <span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='st'>"karate"</span>, package <span class='op'>=</span> <span class='st'>"igraphdata"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in find.package(package, lib.loc, verbose = verbose): there is no package called ‘igraphdata’</span></div><div class='input'>
-<span class='va'>A</span> <span class='op'>&lt;-</span> <span class='fu'>get.adjacency</span><span class='op'>(</span><span class='va'>karate</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in get.adjacency(karate): could not find function "get.adjacency"</span></div><div class='input'>
+
+<span class='va'>A</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/as_adjacency_matrix.html'>get.adjacency</a></span><span class='op'>(</span><span class='va'>karate</span><span class='op'>)</span>
+
 <span class='va'>iform</span> <span class='op'>&lt;-</span> <span class='fu'>NormalizedLaplacian</span><span class='op'>(</span><span class='va'>A</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in h(simpleError(msg, call)): error in evaluating the argument 'x' in selecting a method for function 'rowSums': object 'A' not found</span></div><div class='input'>
-<span class='va'>L</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/transform.html'>transform</a></span><span class='op'>(</span><span class='va'>iform</span>, <span class='va'>A</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in h(simpleError(msg, call)): error in evaluating the argument 'iform' in selecting a method for function 'transform': object 'iform' not found</span></div><div class='input'><span class='va'>L</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'L' not found</span></div><div class='input'>
-<span class='va'>A_recovered</span> <span class='op'>&lt;-</span> <span class='fu'>inverse_transform</span><span class='op'>(</span><span class='va'>iform</span>, <span class='va'>L</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in h(simpleError(msg, call)): error in evaluating the argument 'iform' in selecting a method for function 'inverse_transform': object 'iform' not found</span></div><div class='input'>
+
+<span class='va'>L</span> <span class='op'>&lt;-</span> <span class='fu'><a href='transform.html'>transform</a></span><span class='op'>(</span><span class='va'>iform</span>, <span class='va'>A</span><span class='op'>)</span>
+<span class='va'>L</span>
+</div><div class='output co'>#&gt; 34 x 34 sparse Matrix of class "dgCMatrix"</div><div class='output co'>#&gt; <span class='message'>   [[ suppressing 34 column names ‘Mr Hi’, ‘Actor 2’, ‘Actor 3’ ... ]]</span></div><div class='output co'>#&gt;                                                                        
+#&gt; Mr Hi    .          0.08333333 0.07905694 0.1020621 0.1443376 0.1250000
+#&gt; Actor 2  0.08333333 .          0.10540926 0.1360828 .         .        
+#&gt; Actor 3  0.07905694 0.10540926 .          0.1290994 .         .        
+#&gt; Actor 4  0.10206207 0.13608276 0.12909944 .         .         .        
+#&gt; Actor 5  0.14433757 .          .          .         .         .        
+#&gt; Actor 6  0.12500000 .          .          .         .         .        
+#&gt; Actor 7  0.12500000 .          .          .         0.2886751 0.2500000
+#&gt; Actor 8  0.12500000 0.16666667 0.15811388 0.2041241 .         .        
+#&gt; Actor 9  0.11180340 .          0.14142136 .         .         .        
+#&gt; Actor 10 .          .          0.22360680 .         .         .        
+#&gt; Actor 11 0.14433757 .          .          .         0.3333333 0.2886751
+#&gt; Actor 12 0.25000000 .          .          .         .         .        
+#&gt; Actor 13 0.17677670 .          .          0.2886751 .         .        
+#&gt; Actor 14 0.11180340 0.14907120 0.14142136 0.1825742 .         .        
+#&gt; Actor 15 .          .          .          .         .         .        
+#&gt; Actor 16 .          .          .          .         .         .        
+#&gt; Actor 17 .          .          .          .         .         0.3535534
+#&gt; Actor 18 0.17677670 0.23570226 .          .         .         .        
+#&gt; Actor 19 .          .          .          .         .         .        
+#&gt; Actor 20 0.14433757 0.19245009 .          .         .         .        
+#&gt; Actor 21 .          .          .          .         .         .        
+#&gt; Actor 22 0.17677670 0.23570226 .          .         .         .        
+#&gt; Actor 23 .          .          .          .         .         .        
+#&gt; Actor 24 .          .          .          .         .         .        
+#&gt; Actor 25 .          .          .          .         .         .        
+#&gt; Actor 26 .          .          .          .         .         .        
+#&gt; Actor 27 .          .          .          .         .         .        
+#&gt; Actor 28 .          .          0.15811388 .         .         .        
+#&gt; Actor 29 .          .          0.18257419 .         .         .        
+#&gt; Actor 30 .          .          .          .         .         .        
+#&gt; Actor 31 .          0.16666667 .          .         .         .        
+#&gt; Actor 32 0.10206207 .          .          .         .         .        
+#&gt; Actor 33 .          .          0.09128709 .         .         .        
+#&gt; John A   .          .          .          .         .         .        
+#&gt;                                                                          
+#&gt; Mr Hi    0.1250000 0.1250000 0.1118034 .         0.1443376 0.25 0.1767767
+#&gt; Actor 2  .         0.1666667 .         .         .         .    .        
+#&gt; Actor 3  .         0.1581139 0.1414214 0.2236068 .         .    .        
+#&gt; Actor 4  .         0.2041241 .         .         .         .    0.2886751
+#&gt; Actor 5  0.2886751 .         .         .         0.3333333 .    .        
+#&gt; Actor 6  0.2500000 .         .         .         0.2886751 .    .        
+#&gt; Actor 7  .         .         .         .         .         .    .        
+#&gt; Actor 8  .         .         .         .         .         .    .        
+#&gt; Actor 9  .         .         .         .         .         .    .        
+#&gt; Actor 10 .         .         .         .         .         .    .        
+#&gt; Actor 11 .         .         .         .         .         .    .        
+#&gt; Actor 12 .         .         .         .         .         .    .        
+#&gt; Actor 13 .         .         .         .         .         .    .        
+#&gt; Actor 14 .         .         .         .         .         .    .        
+#&gt; Actor 15 .         .         .         .         .         .    .        
+#&gt; Actor 16 .         .         .         .         .         .    .        
+#&gt; Actor 17 0.3535534 .         .         .         .         .    .        
+#&gt; Actor 18 .         .         .         .         .         .    .        
+#&gt; Actor 19 .         .         .         .         .         .    .        
+#&gt; Actor 20 .         .         .         .         .         .    .        
+#&gt; Actor 21 .         .         .         .         .         .    .        
+#&gt; Actor 22 .         .         .         .         .         .    .        
+#&gt; Actor 23 .         .         .         .         .         .    .        
+#&gt; Actor 24 .         .         .         .         .         .    .        
+#&gt; Actor 25 .         .         .         .         .         .    .        
+#&gt; Actor 26 .         .         .         .         .         .    .        
+#&gt; Actor 27 .         .         .         .         .         .    .        
+#&gt; Actor 28 .         .         .         .         .         .    .        
+#&gt; Actor 29 .         .         .         .         .         .    .        
+#&gt; Actor 30 .         .         .         .         .         .    .        
+#&gt; Actor 31 .         .         0.2236068 .         .         .    .        
+#&gt; Actor 32 .         .         .         .         .         .    .        
+#&gt; Actor 33 .         .         0.1290994 .         .         .    .        
+#&gt; John A   .         .         0.1084652 0.1714986 .         .    .        
+#&gt;                                                                               
+#&gt; Mr Hi    0.1118034 .         .         .         0.1767767 .         0.1443376
+#&gt; Actor 2  0.1490712 .         .         .         0.2357023 .         0.1924501
+#&gt; Actor 3  0.1414214 .         .         .         .         .         .        
+#&gt; Actor 4  0.1825742 .         .         .         .         .         .        
+#&gt; Actor 5  .         .         .         .         .         .         .        
+#&gt; Actor 6  .         .         .         0.3535534 .         .         .        
+#&gt; Actor 7  .         .         .         0.3535534 .         .         .        
+#&gt; Actor 8  .         .         .         .         .         .         .        
+#&gt; Actor 9  .         .         .         .         .         .         .        
+#&gt; Actor 10 .         .         .         .         .         .         .        
+#&gt; Actor 11 .         .         .         .         .         .         .        
+#&gt; Actor 12 .         .         .         .         .         .         .        
+#&gt; Actor 13 .         .         .         .         .         .         .        
+#&gt; Actor 14 .         .         .         .         .         .         .        
+#&gt; Actor 15 .         .         .         .         .         .         .        
+#&gt; Actor 16 .         .         .         .         .         .         .        
+#&gt; Actor 17 .         .         .         .         .         .         .        
+#&gt; Actor 18 .         .         .         .         .         .         .        
+#&gt; Actor 19 .         .         .         .         .         .         .        
+#&gt; Actor 20 .         .         .         .         .         .         .        
+#&gt; Actor 21 .         .         .         .         .         .         .        
+#&gt; Actor 22 .         .         .         .         .         .         .        
+#&gt; Actor 23 .         .         .         .         .         .         .        
+#&gt; Actor 24 .         .         .         .         .         .         .        
+#&gt; Actor 25 .         .         .         .         .         .         .        
+#&gt; Actor 26 .         .         .         .         .         .         .        
+#&gt; Actor 27 .         .         .         .         .         .         .        
+#&gt; Actor 28 .         .         .         .         .         .         .        
+#&gt; Actor 29 .         .         .         .         .         .         .        
+#&gt; Actor 30 .         .         .         .         .         .         .        
+#&gt; Actor 31 .         .         .         .         .         .         .        
+#&gt; Actor 32 .         .         .         .         .         .         .        
+#&gt; Actor 33 .         0.2041241 0.2041241 .         .         0.2041241 .        
+#&gt; John A   0.1084652 0.1714986 0.1714986 .         .         0.1714986 0.1400280
+#&gt;                                                                               
+#&gt; Mr Hi    .         0.1767767 .         .         .         .         .        
+#&gt; Actor 2  .         0.2357023 .         .         .         .         .        
+#&gt; Actor 3  .         .         .         .         .         .         .        
+#&gt; Actor 4  .         .         .         .         .         .         .        
+#&gt; Actor 5  .         .         .         .         .         .         .        
+#&gt; Actor 6  .         .         .         .         .         .         .        
+#&gt; Actor 7  .         .         .         .         .         .         .        
+#&gt; Actor 8  .         .         .         .         .         .         .        
+#&gt; Actor 9  .         .         .         .         .         .         .        
+#&gt; Actor 10 .         .         .         .         .         .         .        
+#&gt; Actor 11 .         .         .         .         .         .         .        
+#&gt; Actor 12 .         .         .         .         .         .         .        
+#&gt; Actor 13 .         .         .         .         .         .         .        
+#&gt; Actor 14 .         .         .         .         .         .         .        
+#&gt; Actor 15 .         .         .         .         .         .         .        
+#&gt; Actor 16 .         .         .         .         .         .         .        
+#&gt; Actor 17 .         .         .         .         .         .         .        
+#&gt; Actor 18 .         .         .         .         .         .         .        
+#&gt; Actor 19 .         .         .         .         .         .         .        
+#&gt; Actor 20 .         .         .         .         .         .         .        
+#&gt; Actor 21 .         .         .         .         .         .         .        
+#&gt; Actor 22 .         .         .         .         .         .         .        
+#&gt; Actor 23 .         .         .         .         .         .         .        
+#&gt; Actor 24 .         .         .         .         .         0.2581989 .        
+#&gt; Actor 25 .         .         .         .         .         0.3333333 .        
+#&gt; Actor 26 .         .         .         0.2581989 0.3333333 .         .        
+#&gt; Actor 27 .         .         .         .         .         .         .        
+#&gt; Actor 28 .         .         .         0.2236068 0.2886751 .         .        
+#&gt; Actor 29 .         .         .         .         .         .         .        
+#&gt; Actor 30 .         .         .         0.2236068 .         .         0.3535534
+#&gt; Actor 31 .         .         .         .         .         .         .        
+#&gt; Actor 32 .         .         .         .         0.2357023 0.2357023 .        
+#&gt; Actor 33 0.2041241 .         0.2041241 0.1290994 .         .         .        
+#&gt; John A   0.1714986 .         0.1714986 0.1084652 .         .         0.1714986
+#&gt;                                                                       
+#&gt; Mr Hi    .         .         .         .         0.10206207 .         
+#&gt; Actor 2  .         .         .         0.1666667 .          .         
+#&gt; Actor 3  0.1581139 0.1825742 .         .         .          0.09128709
+#&gt; Actor 4  .         .         .         .         .          .         
+#&gt; Actor 5  .         .         .         .         .          .         
+#&gt; Actor 6  .         .         .         .         .          .         
+#&gt; Actor 7  .         .         .         .         .          .         
+#&gt; Actor 8  .         .         .         .         .          .         
+#&gt; Actor 9  .         .         .         0.2236068 .          0.12909944
+#&gt; Actor 10 .         .         .         .         .          .         
+#&gt; Actor 11 .         .         .         .         .          .         
+#&gt; Actor 12 .         .         .         .         .          .         
+#&gt; Actor 13 .         .         .         .         .          .         
+#&gt; Actor 14 .         .         .         .         .          .         
+#&gt; Actor 15 .         .         .         .         .          0.20412415
+#&gt; Actor 16 .         .         .         .         .          0.20412415
+#&gt; Actor 17 .         .         .         .         .          .         
+#&gt; Actor 18 .         .         .         .         .          .         
+#&gt; Actor 19 .         .         .         .         .          0.20412415
+#&gt; Actor 20 .         .         .         .         .          .         
+#&gt; Actor 21 .         .         .         .         .          0.20412415
+#&gt; Actor 22 .         .         .         .         .          .         
+#&gt; Actor 23 .         .         .         .         .          0.20412415
+#&gt; Actor 24 0.2236068 .         0.2236068 .         .          0.12909944
+#&gt; Actor 25 0.2886751 .         .         .         0.23570226 .         
+#&gt; Actor 26 .         .         .         .         0.23570226 .         
+#&gt; Actor 27 .         .         0.3535534 .         .          .         
+#&gt; Actor 28 .         .         .         .         .          .         
+#&gt; Actor 29 .         .         .         .         0.23570226 .         
+#&gt; Actor 30 .         .         .         .         .          0.14433757
+#&gt; Actor 31 .         .         .         .         .          0.14433757
+#&gt; Actor 32 .         0.2357023 .         .         .          0.11785113
+#&gt; Actor 33 .         .         0.1443376 0.1443376 0.11785113 .         
+#&gt; John A   0.1212678 0.1400280 0.1212678 0.1212678 0.09901475 0.07001400
+#&gt;                    
+#&gt; Mr Hi    .         
+#&gt; Actor 2  .         
+#&gt; Actor 3  .         
+#&gt; Actor 4  .         
+#&gt; Actor 5  .         
+#&gt; Actor 6  .         
+#&gt; Actor 7  .         
+#&gt; Actor 8  .         
+#&gt; Actor 9  0.10846523
+#&gt; Actor 10 0.17149859
+#&gt; Actor 11 .         
+#&gt; Actor 12 .         
+#&gt; Actor 13 .         
+#&gt; Actor 14 0.10846523
+#&gt; Actor 15 0.17149859
+#&gt; Actor 16 0.17149859
+#&gt; Actor 17 .         
+#&gt; Actor 18 .         
+#&gt; Actor 19 0.17149859
+#&gt; Actor 20 0.14002801
+#&gt; Actor 21 0.17149859
+#&gt; Actor 22 .         
+#&gt; Actor 23 0.17149859
+#&gt; Actor 24 0.10846523
+#&gt; Actor 25 .         
+#&gt; Actor 26 .         
+#&gt; Actor 27 0.17149859
+#&gt; Actor 28 0.12126781
+#&gt; Actor 29 0.14002801
+#&gt; Actor 30 0.12126781
+#&gt; Actor 31 0.12126781
+#&gt; Actor 32 0.09901475
+#&gt; Actor 33 0.07001400
+#&gt; John A   .         </div><div class='input'>
+<span class='va'>A_recovered</span> <span class='op'>&lt;-</span> <span class='fu'><a href='inverse_transform.html'>inverse_transform</a></span><span class='op'>(</span><span class='va'>iform</span>, <span class='va'>L</span><span class='op'>)</span>
+
 <span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span><span class='op'>(</span><span class='va'>A</span>, <span class='va'>A_recovered</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in h(simpleError(msg, call)): error in evaluating the argument 'target' in selecting a method for function 'all.equal': object 'A' not found</span></div><div class='input'>
+</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
