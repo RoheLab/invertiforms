@@ -5,12 +5,11 @@
 
 <!-- badges: start -->
 
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Codecov test
 coverage](https://codecov.io/gh/RoheLab/invertiforms/branch/master/graph/badge.svg)](https://codecov.io/gh/RoheLab/invertiforms?branch=master)
-[![R build
-status](https://github.com/RoheLab/invertiforms/workflows/R-CMD-check/badge.svg)](https://github.com/RoheLab/invertiforms/actions)
+[![R-CMD-check](https://github.com/RoheLab/invertiforms/workflows/R-CMD-check/badge.svg)](https://github.com/RoheLab/invertiforms/actions)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/invertiforms)](https://CRAN.R-project.org/package=invertiforms)
 <!-- badges: end -->
 
 The goal of invertiforms is to …
@@ -275,14 +274,14 @@ all.equal(A, A_recovered)
 
 ## Current transforms
 
-  - row center
-  - column center
-  - double center
-  - normalized graph laplacian
-  - regularized graph laplacian
-  - perturbed graph laplacian
+-   row center
+-   column center
+-   double center
+-   normalized graph laplacian
+-   regularized graph laplacian
+-   perturbed graph laplacian
 
 ## related work
 
-  - separate transformer based objects like recipes
-  - Incomplete S4 class in softImpute
+-   separate transformer based objects like recipes
+-   Incomplete S4 class in softImpute

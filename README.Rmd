@@ -16,9 +16,9 @@ knitr::opts_chunk$set(
 # invertiforms
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Codecov test coverage](https://codecov.io/gh/RoheLab/invertiforms/branch/master/graph/badge.svg)](https://codecov.io/gh/RoheLab/invertiforms?branch=master)
-[![R build status](https://github.com/RoheLab/invertiforms/workflows/R-CMD-check/badge.svg)](https://github.com/RoheLab/invertiforms/actions)
+[![R-CMD-check](https://github.com/RoheLab/invertiforms/workflows/R-CMD-check/badge.svg)](https://github.com/RoheLab/invertiforms/actions)
+[![CRAN status](https://www.r-pkg.org/badges/version/invertiforms)](https://CRAN.R-project.org/package=invertiforms)
 <!-- badges: end -->
 
 The goal of invertiforms is to ...
