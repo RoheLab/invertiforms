@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Title — DoubleCenter • invertiforms</title>
+<title>Construct and use DoubleCenter transformations — DoubleCenter • invertiforms</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,10 @@
 
 
 
-<meta property="og:title" content="Title — DoubleCenter" />
-<meta property="og:description" content="Convience constructor for DoubleCenter" />
+<meta property="og:title" content="Construct and use DoubleCenter transformations — DoubleCenter" />
+<meta property="og:description" content="A convenience function to create DoubleCenter S4 objects,
+which are useful for simultaneously row and column centering
+a matrix." />
 
 
 
@@ -108,13 +110,15 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Title</h1>
+    <h1>Construct and use DoubleCenter transformations</h1>
     <small class="dont-index">Source: <a href='https://github.com/RoheLab/invertiforms/blob/master/R/DoubleCenter.R'><code>R/DoubleCenter.R</code></a></small>
     <div class="hidden name"><code>DoubleCenter.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Convience constructor for <a href='DoubleCenter-class.html'>DoubleCenter</a></p>
+    <p>A convenience function to create <a href='DoubleCenter-class.html'>DoubleCenter</a> S4 objects,
+which are useful for <strong>simultaneously row and column centering</strong>
+a matrix.</p>
     </div>
 
     <pre class="usage"><span class='fu'>DoubleCenter</span><span class='op'>(</span><span class='va'>A</span><span class='op'>)</span>
@@ -133,18 +137,25 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>A</th>
-      <td><p>TODO</p></td>
+      <td><p>A matrix to transform.</p></td>
     </tr>
     <tr>
       <th>iform</th>
-      <td><p>TODO</p></td>
+      <td><p>An <a href='Invertiform-class.html'>Invertiform</a> object describing the transformation.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>DoubleCenter</code> creates a <a href='DoubleCenter-class.html'>DoubleCenter</a>.</p><ul>
-<li><p><code><a href='transform.html'>transform()</a></code> applies the double centering operation to a matrix</p></li>
+    
+<ul>
+<li><p><code>DoubleCenter()</code> creates a <a href='DoubleCenter-class.html'>DoubleCenter</a> object.</p></li>
+<li><p><code><a href='transform.html'>transform()</a></code> returns the transformed matrix,
+typically as a <a href='https://rohelab.github.io/sparseLRMatrix/reference/sparseLRMatrix-class.html'>sparseLRMatrix::sparseLRMatrix</a>.</p></li>
+<li><p><code><a href='inverse_transform.html'>inverse_transform()</a></code> returns the inverse transformed matrix,
+typically as a <a href='https://rohelab.github.io/sparseLRMatrix/reference/sparseLRMatrix-class.html'>sparseLRMatrix::sparseLRMatrix</a> in most cases.
+When possible reduces the <a href='https://rohelab.github.io/sparseLRMatrix/reference/sparseLRMatrix-class.html'>sparseLRMatrix::sparseLRMatrix</a> to a
+<code><a href='https://rdrr.io/pkg/Matrix/man/sparseMatrix.html'>Matrix::sparseMatrix()</a></code>.</p></li>
 </ul>
 
 
@@ -165,121 +176,6 @@
 <span class='va'>iform</span> <span class='op'>&lt;-</span> <span class='fu'>DoubleCenter</span><span class='op'>(</span><span class='va'>A</span><span class='op'>)</span>
 
 <span class='va'>A_tilde</span> <span class='op'>&lt;-</span> <span class='fu'><a href='transform.html'>transform</a></span><span class='op'>(</span><span class='va'>iform</span>, <span class='va'>A</span><span class='op'>)</span>
-<span class='va'>A_tilde</span>
-</div><div class='output co'>#&gt; An object of class "sparseLRMatrix"
-#&gt; Slot "sparse":
-#&gt; 34 x 34 sparse Matrix of class "dgCMatrix"</div><div class='output co'>#&gt; <span class='message'>   [[ suppressing 34 column names ‘Mr Hi’, ‘Actor 2’, ‘Actor 3’ ... ]]</span></div><div class='output co'>#&gt;                                                                             
-#&gt; Mr Hi    . 1 1 1 1 1 1 1 1 . 1 1 1 1 . . . 1 . 1 . 1 . . . . . . . . . 1 . .
-#&gt; Actor 2  1 . 1 1 . . . 1 . . . . . 1 . . . 1 . 1 . 1 . . . . . . . . 1 . . .
-#&gt; Actor 3  1 1 . 1 . . . 1 1 1 . . . 1 . . . . . . . . . . . . . 1 1 . . . 1 .
-#&gt; Actor 4  1 1 1 . . . . 1 . . . . 1 1 . . . . . . . . . . . . . . . . . . . .
-#&gt; Actor 5  1 . . . . . 1 . . . 1 . . . . . . . . . . . . . . . . . . . . . . .
-#&gt; Actor 6  1 . . . . . 1 . . . 1 . . . . . 1 . . . . . . . . . . . . . . . . .
-#&gt; Actor 7  1 . . . 1 1 . . . . . . . . . . 1 . . . . . . . . . . . . . . . . .
-#&gt; Actor 8  1 1 1 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-#&gt; Actor 9  1 . 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . 1 . 1 1
-#&gt; Actor 10 . . 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
-#&gt; Actor 11 1 . . . 1 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-#&gt; Actor 12 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-#&gt; Actor 13 1 . . 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-#&gt; Actor 14 1 1 1 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
-#&gt; Actor 15 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1 1
-#&gt; Actor 16 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1 1
-#&gt; Actor 17 . . . . . 1 1 . . . . . . . . . . . . . . . . . . . . . . . . . . .
-#&gt; Actor 18 1 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-#&gt; Actor 19 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1 1
-#&gt; Actor 20 1 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1
-#&gt; Actor 21 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1 1
-#&gt; Actor 22 1 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-#&gt; Actor 23 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1 1
-#&gt; Actor 24 . . . . . . . . . . . . . . . . . . . . . . . . . 1 . 1 . 1 . . 1 1
-#&gt; Actor 25 . . . . . . . . . . . . . . . . . . . . . . . . . 1 . 1 . . . 1 . .
-#&gt; Actor 26 . . . . . . . . . . . . . . . . . . . . . . . 1 1 . . . . . . 1 . .
-#&gt; Actor 27 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1 . . . 1
-#&gt; Actor 28 . . 1 . . . . . . . . . . . . . . . . . . . . 1 1 . . . . . . . . 1
-#&gt; Actor 29 . . 1 . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1 . 1
-#&gt; Actor 30 . . . . . . . . . . . . . . . . . . . . . . . 1 . . 1 . . . . . 1 1
-#&gt; Actor 31 . 1 . . . . . . 1 . . . . . . . . . . . . . . . . . . . . . . . 1 1
-#&gt; Actor 32 1 . . . . . . . . . . . . . . . . . . . . . . . 1 1 . . 1 . . . 1 1
-#&gt; Actor 33 . . 1 . . . . . 1 . . . . . 1 1 . . 1 . 1 . 1 1 . . . . . 1 1 1 . 1
-#&gt; John A   . . . . . . . . 1 1 . . . 1 1 1 . . 1 1 1 . 1 1 . . 1 1 1 1 1 1 1 .
-#&gt; 
-#&gt; Slot "U":
-#&gt; 34 x 3 Matrix of class "dgeMatrix"
-#&gt;                 [,1] [,2]      [,3]
-#&gt; Mr Hi    -0.47058824    1 0.1349481
-#&gt; Actor 2  -0.26470588    1 0.1349481
-#&gt; Actor 3  -0.29411765    1 0.1349481
-#&gt; Actor 4  -0.17647059    1 0.1349481
-#&gt; Actor 5  -0.08823529    1 0.1349481
-#&gt; Actor 6  -0.11764706    1 0.1349481
-#&gt; Actor 7  -0.11764706    1 0.1349481
-#&gt; Actor 8  -0.11764706    1 0.1349481
-#&gt; Actor 9  -0.14705882    1 0.1349481
-#&gt; Actor 10 -0.05882353    1 0.1349481
-#&gt; Actor 11 -0.08823529    1 0.1349481
-#&gt; Actor 12 -0.02941176    1 0.1349481
-#&gt; Actor 13 -0.05882353    1 0.1349481
-#&gt; Actor 14 -0.14705882    1 0.1349481
-#&gt; Actor 15 -0.05882353    1 0.1349481
-#&gt; Actor 16 -0.05882353    1 0.1349481
-#&gt; Actor 17 -0.05882353    1 0.1349481
-#&gt; Actor 18 -0.05882353    1 0.1349481
-#&gt; Actor 19 -0.05882353    1 0.1349481
-#&gt; Actor 20 -0.08823529    1 0.1349481
-#&gt; Actor 21 -0.05882353    1 0.1349481
-#&gt; Actor 22 -0.05882353    1 0.1349481
-#&gt; Actor 23 -0.05882353    1 0.1349481
-#&gt; Actor 24 -0.14705882    1 0.1349481
-#&gt; Actor 25 -0.08823529    1 0.1349481
-#&gt; Actor 26 -0.08823529    1 0.1349481
-#&gt; Actor 27 -0.05882353    1 0.1349481
-#&gt; Actor 28 -0.11764706    1 0.1349481
-#&gt; Actor 29 -0.08823529    1 0.1349481
-#&gt; Actor 30 -0.11764706    1 0.1349481
-#&gt; Actor 31 -0.11764706    1 0.1349481
-#&gt; Actor 32 -0.17647059    1 0.1349481
-#&gt; Actor 33 -0.35294118    1 0.1349481
-#&gt; John A   -0.50000000    1 0.1349481
-#&gt; 
-#&gt; Slot "V":
-#&gt; 34 x 3 Matrix of class "dgeMatrix"
-#&gt;          [,1]        [,2] [,3]
-#&gt; Mr Hi       1 -0.47058824    1
-#&gt; Actor 2     1 -0.26470588    1
-#&gt; Actor 3     1 -0.29411765    1
-#&gt; Actor 4     1 -0.17647059    1
-#&gt; Actor 5     1 -0.08823529    1
-#&gt; Actor 6     1 -0.11764706    1
-#&gt; Actor 7     1 -0.11764706    1
-#&gt; Actor 8     1 -0.11764706    1
-#&gt; Actor 9     1 -0.14705882    1
-#&gt; Actor 10    1 -0.05882353    1
-#&gt; Actor 11    1 -0.08823529    1
-#&gt; Actor 12    1 -0.02941176    1
-#&gt; Actor 13    1 -0.05882353    1
-#&gt; Actor 14    1 -0.14705882    1
-#&gt; Actor 15    1 -0.05882353    1
-#&gt; Actor 16    1 -0.05882353    1
-#&gt; Actor 17    1 -0.05882353    1
-#&gt; Actor 18    1 -0.05882353    1
-#&gt; Actor 19    1 -0.05882353    1
-#&gt; Actor 20    1 -0.08823529    1
-#&gt; Actor 21    1 -0.05882353    1
-#&gt; Actor 22    1 -0.05882353    1
-#&gt; Actor 23    1 -0.05882353    1
-#&gt; Actor 24    1 -0.14705882    1
-#&gt; Actor 25    1 -0.08823529    1
-#&gt; Actor 26    1 -0.08823529    1
-#&gt; Actor 27    1 -0.05882353    1
-#&gt; Actor 28    1 -0.11764706    1
-#&gt; Actor 29    1 -0.08823529    1
-#&gt; Actor 30    1 -0.11764706    1
-#&gt; Actor 31    1 -0.11764706    1
-#&gt; Actor 32    1 -0.17647059    1
-#&gt; Actor 33    1 -0.35294118    1
-#&gt; John A      1 -0.50000000    1
-#&gt; </div><div class='input'>
 <span class='va'>A_recovered</span> <span class='op'>&lt;-</span> <span class='fu'><a href='inverse_transform.html'>inverse_transform</a></span><span class='op'>(</span><span class='va'>iform</span>, <span class='va'>A_tilde</span><span class='op'>)</span>
 
 <span class='fu'><a href='https://rdrr.io/r/base/all.equal.html'>all.equal</a></span><span class='op'>(</span><span class='va'>A</span>, <span class='va'>A_recovered</span><span class='op'>)</span>
