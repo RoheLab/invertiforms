@@ -6,8 +6,7 @@
 \alias{invertiforms-package}
 \title{invertiforms: Intervible transforms for matrix valued data}
 \description{
-Provides composable invertible transforms for
-    (sparse) matrices.
+Provides composable invertible transforms for (sparse) matrices.
 }
 \seealso{
 Useful links:

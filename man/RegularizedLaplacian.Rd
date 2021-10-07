@@ -2,19 +2,25 @@
 % Please edit documentation in R/RegularizedLaplacian.R
 \name{RegularizedLaplacian}
 \alias{RegularizedLaplacian}
-\alias{transform,RegularizedLaplacian,sparseMatrix-method}
+\alias{transform,RegularizedLaplacian,Matrix-method}
+\alias{transform,RegularizedLaplacian,matrix-method}
 \alias{transform,RegularizedLaplacian,sparseLRMatrix-method}
-\alias{inverse_transform,RegularizedLaplacian,sparseMatrix-method}
+\alias{inverse_transform,RegularizedLaplacian,Matrix-method}
+\alias{inverse_transform,RegularizedLaplacian,matrix-method}
 \alias{inverse_transform,RegularizedLaplacian,vsp_fa-method}
 \title{Title}
 \usage{
 RegularizedLaplacian(A, tau_row = NULL, tau_col = NULL)
 
-\S4method{transform}{RegularizedLaplacian,sparseMatrix}(iform, A)
+\S4method{transform}{RegularizedLaplacian,Matrix}(iform, A)
+
+\S4method{transform}{RegularizedLaplacian,matrix}(iform, A)
 
 \S4method{transform}{RegularizedLaplacian,sparseLRMatrix}(iform, A)
 
-\S4method{inverse_transform}{RegularizedLaplacian,sparseMatrix}(iform, A)
+\S4method{inverse_transform}{RegularizedLaplacian,Matrix}(iform, A)
+
+\S4method{inverse_transform}{RegularizedLaplacian,matrix}(iform, A)
 
 \S4method{inverse_transform}{RegularizedLaplacian,vsp_fa}(iform, A)
 }
