@@ -3,12 +3,9 @@
 \docType{class}
 \name{NormalizedLaplacian-class}
 \alias{NormalizedLaplacian-class}
-\title{Title}
-\value{
-TODO
-}
+\title{Normalized graph Laplacian transformation}
 \description{
-Title
+Normalized graph Laplacian transformation
 }
 \section{Slots}{
 

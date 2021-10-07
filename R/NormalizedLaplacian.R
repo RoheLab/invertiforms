@@ -1,12 +1,9 @@
-#' Title
+#' Normalized graph Laplacian transformation
 #'
 #' @slot rsA numeric.
 #' @slot csA numeric.
 #'
-#' @return TODO
 #' @export
-#'
-#' @include s4-generics.R
 #'
 setClass(
   "NormalizedLaplacian",
@@ -17,15 +14,30 @@ setClass(
   )
 )
 
-#' Title
+#' Construct and use NormalizedLaplacian transformation
 #'
-#' @param iform TODO
-#' @param A TODO
+#' A convenience function to create [NormalizedLaplacian-class] S4 objects,
+#' which are useful for finding the normalized Laplacian of the
+#' adjacency matrix of a graph. Computes the normalized Laplacian as
+#' TODO.
 #'
-#' @return TODO
+#' @inheritParams transform
+#'
+#' @return
+#'
+#'   - `DoubleCenter()` creates a [DoubleCenter-class] object.
+#'
+#'   - `transform()` returns the transformed matrix,
+#'     typically as a [sparseLRMatrix::sparseLRMatrix-class].
+#'
+#'   - `inverse_transform()` returns the inverse transformed matrix,
+#'     typically as a [sparseLRMatrix::sparseLRMatrix-class] in most cases.
+#'     When possible reduces the [sparseLRMatrix::sparseLRMatrix-class] to a
+#'     [Matrix::sparseMatrix()].
+#'
 #' @export
+#' @include s4-generics.R
 #'
-#' @rdname NormalizedLaplacian
 #' @examples
 #'
 #' library(igraph)
@@ -38,8 +50,6 @@ setClass(
 #' iform <- NormalizedLaplacian(A)
 #'
 #' L <- transform(iform, A)
-#' L
-#'
 #' A_recovered <- inverse_transform(iform, L)
 #'
 #' all.equal(A, A_recovered)

@@ -5,7 +5,7 @@
 \alias{transform,DoubleCenter,sparseMatrix-method}
 \alias{inverse_transform,DoubleCenter,sparseLRMatrix-method}
 \alias{inverse_transform,DoubleCenter,vsp_fa-method}
-\title{Title}
+\title{Construct and use DoubleCenter transformations}
 \usage{
 DoubleCenter(A)
 
@@ -16,18 +16,25 @@ DoubleCenter(A)
 \S4method{inverse_transform}{DoubleCenter,vsp_fa}(iform, A)
 }
 \arguments{
-\item{A}{TODO}
+\item{A}{A matrix to transform.}
 
-\item{iform}{TODO}
+\item{iform}{An \linkS4class{Invertiform} object describing the transformation.}
 }
 \value{
-\code{DoubleCenter} creates a \linkS4class{DoubleCenter}.
 \itemize{
-\item \code{transform()} applies the double centering operation to a matrix
+\item \code{DoubleCenter()} creates a \linkS4class{DoubleCenter} object.
+\item \code{transform()} returns the transformed matrix,
+typically as a \link[sparseLRMatrix:sparseLRMatrix-class]{sparseLRMatrix::sparseLRMatrix}.
+\item \code{inverse_transform()} returns the inverse transformed matrix,
+typically as a \link[sparseLRMatrix:sparseLRMatrix-class]{sparseLRMatrix::sparseLRMatrix} in most cases.
+When possible reduces the \link[sparseLRMatrix:sparseLRMatrix-class]{sparseLRMatrix::sparseLRMatrix} to a
+\code{\link[Matrix:sparseMatrix]{Matrix::sparseMatrix()}}.
 }
 }
 \description{
-Convience constructor for \linkS4class{DoubleCenter}
+A convenience function to create \linkS4class{DoubleCenter} S4 objects,
+which are useful for \strong{simultaneously row and column centering}
+a matrix.
 }
 \examples{
 
@@ -41,8 +48,6 @@ A <- get.adjacency(karate)
 iform <- DoubleCenter(A)
 
 A_tilde <- transform(iform, A)
-A_tilde
-
 A_recovered <- inverse_transform(iform, A_tilde)
 
 all.equal(A, A_recovered)

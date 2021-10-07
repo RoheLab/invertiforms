@@ -4,7 +4,7 @@
 \alias{NormalizedLaplacian}
 \alias{transform,NormalizedLaplacian,sparseMatrix-method}
 \alias{inverse_transform,NormalizedLaplacian,sparseMatrix-method}
-\title{Title}
+\title{Construct and use NormalizedLaplacian transformation}
 \usage{
 NormalizedLaplacian(A)
 
@@ -13,15 +13,26 @@ NormalizedLaplacian(A)
 \S4method{inverse_transform}{NormalizedLaplacian,sparseMatrix}(iform, A)
 }
 \arguments{
-\item{A}{TODO}
+\item{A}{A matrix to transform.}
 
-\item{iform}{TODO}
+\item{iform}{An \linkS4class{Invertiform} object describing the transformation.}
 }
 \value{
-TODO
+\itemize{
+\item \code{DoubleCenter()} creates a \linkS4class{DoubleCenter} object.
+\item \code{transform()} returns the transformed matrix,
+typically as a \link[sparseLRMatrix:sparseLRMatrix-class]{sparseLRMatrix::sparseLRMatrix}.
+\item \code{inverse_transform()} returns the inverse transformed matrix,
+typically as a \link[sparseLRMatrix:sparseLRMatrix-class]{sparseLRMatrix::sparseLRMatrix} in most cases.
+When possible reduces the \link[sparseLRMatrix:sparseLRMatrix-class]{sparseLRMatrix::sparseLRMatrix} to a
+\code{\link[Matrix:sparseMatrix]{Matrix::sparseMatrix()}}.
+}
 }
 \description{
-Title
+A convenience function to create \linkS4class{NormalizedLaplacian} S4 objects,
+which are useful for finding the normalized Laplacian of the
+adjacency matrix of a graph. Computes the normalized Laplacian as
+TODO.
 }
 \examples{
 
@@ -35,8 +46,6 @@ A <- get.adjacency(karate)
 iform <- NormalizedLaplacian(A)
 
 L <- transform(iform, A)
-L
-
 A_recovered <- inverse_transform(iform, L)
 
 all.equal(A, A_recovered)

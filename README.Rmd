@@ -23,6 +23,10 @@ knitr::opts_chunk$set(
 
 The goal of invertiforms is to ...
 
+composable transformations. could have a sparse matrix representing a graph, first row and column center it, then find the graph Laplacian of the centered matrix, decompose that matrix, and then use inverse transformations to inverse transform the results back to the original scale
+
+probably most useful for you is the quick graph Laplacian formation
+
 ## Installation
 
 You can install the released version of invertiforms from [CRAN](https://CRAN.R-project.org) with:

@@ -3,12 +3,9 @@
 \docType{class}
 \name{DoubleCenter-class}
 \alias{DoubleCenter-class}
-\title{Title}
-\value{
-TODO
-}
+\title{Row and column centering transformation}
 \description{
-Title
+Row and column centering transformation
 }
 \section{Slots}{
 

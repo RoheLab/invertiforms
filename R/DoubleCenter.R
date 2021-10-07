@@ -1,14 +1,11 @@
 
-#' Title
+#' Row and column centering transformation
 #'
 #' @slot row_means numeric.
 #' @slot col_means numeric.
 #' @slot overall_mean numeric.
 #'
-#' @return TODO
 #' @export
-#'
-#' @include s4-generics.R
 #'
 setClass(
   "DoubleCenter",
@@ -20,18 +17,28 @@ setClass(
   )
 )
 
-#' Title
+#' Construct and use DoubleCenter transformations
 #'
-#' Convience constructor for [DoubleCenter-class]
+#' A convenience function to create [DoubleCenter-class] S4 objects,
+#' which are useful for **simultaneously row and column centering**
+#' a matrix.
 #'
-#' @param A TODO
-#' @param iform TODO
+#' @inheritParams transform
 #'
-#' @return `DoubleCenter` creates a [DoubleCenter-class].
+#' @return
 #'
-#'   - `transform()` applies the double centering operation to a matrix
+#'   - `DoubleCenter()` creates a [DoubleCenter-class] object.
+#'
+#'   - `transform()` returns the transformed matrix,
+#'     typically as a [sparseLRMatrix::sparseLRMatrix-class].
+#'
+#'   - `inverse_transform()` returns the inverse transformed matrix,
+#'     typically as a [sparseLRMatrix::sparseLRMatrix-class] in most cases.
+#'     When possible reduces the [sparseLRMatrix::sparseLRMatrix-class] to a
+#'     [Matrix::sparseMatrix()].
 #'
 #' @export
+#' @include s4-generics.R
 #'
 #' @examples
 #'
@@ -45,8 +52,6 @@ setClass(
 #' iform <- DoubleCenter(A)
 #'
 #' A_tilde <- transform(iform, A)
-#' A_tilde
-#'
 #' A_recovered <- inverse_transform(iform, A_tilde)
 #'
 #' all.equal(A, A_recovered)
