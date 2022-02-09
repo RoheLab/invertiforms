@@ -1,5 +1,5 @@
 
-#' Title
+#' Regularized graph Laplacian transformation
 #'
 #' @slot tau_row numeric.
 #' @slot tau_col numeric.
@@ -25,15 +25,67 @@ setClass(
 )
 
 
-#' Title
+#' Construct and use the Regularized Laplacian
 #'
-#' @param A A [Matrix::Matrix()] or [sparseLRMatrix::sparseLRMatrix()] object.
-#' @param tau_row TODO
-#' @param tau_col TODO
-#' @param iform TODO
+#' @inheritParams transform
 #'
-#' @return TODO
+#' @param tau_row Additive regularizer for row sums of `abs(A)`. Typically
+#'   this corresponds to inflating the (absolute) out-degree of each node
+#'   by `tau_row`. Defaults to the mean (absolute) row sum of `A`.
+#' @param tau_col Additive regularizer for column sums of `abs(A)`. Typically
+#'   this corresponds to inflating the (absolute) in-degree of each node
+#'   by `tau_col`. Defaults to the mean (absolute) column sum of `A`.
+#'
+#' @return
+#'
+#'   - `RegularizedLaplacian()` creates a [RegularizedLaplacian-class] object.
+#'
+#'   - `transform()` returns the transformed matrix,
+#'     typically as a [Matrix-class].
+#'
+#'   - `inverse_transform()` returns the inverse transformed matrix,
+#'     typically as a [Matrix-class].
+#'
 #' @export
+#'
+#' @details
+#'
+#' We define the *regularized Laplacian* \eqn{L^\tau(A)}{L_tau(A)} of an
+#' \eqn{n \times n}{n by n} graph adjacency matrix \eqn{A} as
+#'
+#' \deqn{
+#'   L^\tau(A)_{ij} = \frac{A_{ij}}{\sqrt{d^\text{out}_i + \tau_\text{row}}
+#'   \sqrt{d^\text{in}_j + \tau_\text{col}}}
+#' }{
+#'   L[ij] = A[ij] / (sqrt(d^out[i] + \tau_row)  sqrt(d^in[j] + \tau_col))
+#' }
+#'
+#' where
+#'
+#' \deqn{
+#'   d^\text{out}_i = \sum_{j=1}^n \lvert A_{ij} \rvert
+#' }{
+#'   d^out[i] = sum_j abs(A[ij])
+#' }
+#'
+#' and
+#'
+#' \deqn{
+#'   d^\text{in}_j = \sum_{i=1}^n \lvert A_{ij} \rvert.
+#' }{
+#'   d^in[j] = sum_i abs(A[ij]).
+#' }
+#'
+#' When \eqn{A_{ij}}{A[ij]} denotes the present of an edge *from* node \eqn{i}
+#' *to* node \eqn{j}, which is fairly standard notation,
+#' \eqn{d^\text{out}_i}{d^out[i]} denotes the (absolute) out-degree of node
+#' \eqn{i} and \eqn{d^\text{in}_j}{d^in[j]} denotes the (absolute) in-degree
+#' of node \eqn{j}. Then \eqn{\tau_\text{row}}{\tau_row} is an additive
+#' out-degree regularizer and \eqn{\tau_\text{col}}{\tau_col} is an
+#' additive in-degree regularizer.
+#'
+#' Note that this documentation renders more clearly at
+#' <https://rohelab.github.io/invertiforms/>.
 #'
 #' @rdname RegularizedLaplacian
 #' @examples

@@ -4,7 +4,7 @@
 \alias{NormalizedLaplacian}
 \alias{transform,NormalizedLaplacian,sparseMatrix-method}
 \alias{inverse_transform,NormalizedLaplacian,sparseMatrix-method}
-\title{Construct and use NormalizedLaplacian transformation}
+\title{Construct and use the Normalized Laplacian}
 \usage{
 NormalizedLaplacian(A)
 
@@ -57,7 +57,13 @@ and
   d^in[j] = sum_i abs(A[ij]).
 }
 
-Note that this documentation renders more clearly at
+When \eqn{A_{ij}}{A[ij]} denotes the present of an edge \emph{from} node \eqn{i}
+\emph{to} node \eqn{j}, which is fairly standard notation,
+\eqn{d^\text{out}_i}{d^out[i]} denotes the (absolute) out-degree of node
+\eqn{i} and \eqn{d^\text{in}_j}{d^in[j]} denotes the (absolute) in-degree
+of node \eqn{j}.
+
+Note that this documentation renders most clearly at
 \url{https://rohelab.github.io/invertiforms/}.
 }
 \examples{

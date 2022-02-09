@@ -14,7 +14,7 @@ setClass(
   )
 )
 
-#' Construct and use NormalizedLaplacian transformation
+#' Construct and use the Normalized Laplacian
 #'
 #' A convenience function to create [NormalizedLaplacian-class] S4 objects,
 #' which are useful for finding the normalized Laplacian of the
@@ -47,7 +47,13 @@ setClass(
 #'   d^in[j] = sum_i abs(A[ij]).
 #' }
 #'
-#' Note that this documentation renders more clearly at
+#' When \eqn{A_{ij}}{A[ij]} denotes the present of an edge *from* node \eqn{i}
+#' *to* node \eqn{j}, which is fairly standard notation,
+#' \eqn{d^\text{out}_i}{d^out[i]} denotes the (absolute) out-degree of node
+#' \eqn{i} and \eqn{d^\text{in}_j}{d^in[j]} denotes the (absolute) in-degree
+#' of node \eqn{j}.
+#'
+#' Note that this documentation renders most clearly at
 #' <https://rohelab.github.io/invertiforms/>.
 #'
 #' @inheritParams transform

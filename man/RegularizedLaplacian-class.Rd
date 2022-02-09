@@ -3,9 +3,9 @@
 \docType{class}
 \name{RegularizedLaplacian-class}
 \alias{RegularizedLaplacian-class}
-\title{Title}
+\title{Regularized graph Laplacian transformation}
 \description{
-Title
+Regularized graph Laplacian transformation
 }
 \section{Slots}{
 
