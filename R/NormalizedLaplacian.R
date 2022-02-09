@@ -71,6 +71,7 @@ setClass(
 #' @export
 #' @include s4-generics.R
 #'
+#' @rdname NormalizedLaplacian-class
 #' @examples
 #'
 #' library(igraph)

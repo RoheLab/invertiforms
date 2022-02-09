@@ -1,4 +1,3 @@
-
 #' Row and column centering transformation
 #'
 #' @slot row_means numeric.
@@ -38,6 +37,7 @@ setClass(
 #'     [Matrix::sparseMatrix()].
 #'
 #' @export
+#' @rdname DoubleCenter-class
 #' @include s4-generics.R
 #'
 #' @examples

@@ -1,4 +1,3 @@
-
 #' Regularized graph Laplacian transformation
 #'
 #' @slot tau_row numeric.
@@ -31,10 +30,12 @@ setClass(
 #'
 #' @param tau_row Additive regularizer for row sums of `abs(A)`. Typically
 #'   this corresponds to inflating the (absolute) out-degree of each node
-#'   by `tau_row`. Defaults to the mean (absolute) row sum of `A`.
+#'   by `tau_row`. Defaults to `NULL`, in which case we set `tau_row` to
+#'   the mean (absolute) row sum of `A`.
 #' @param tau_col Additive regularizer for column sums of `abs(A)`. Typically
 #'   this corresponds to inflating the (absolute) in-degree of each node
-#'   by `tau_col`. Defaults to the mean (absolute) column sum of `A`.
+#'   by `tau_col`. Defaults to `NULL`, in which case we set `tau_col` to
+#'   the mean (absolute) column sum of `A`.
 #'
 #' @return
 #'
@@ -87,7 +88,7 @@ setClass(
 #' Note that this documentation renders more clearly at
 #' <https://rohelab.github.io/invertiforms/>.
 #'
-#' @rdname RegularizedLaplacian
+#' @rdname RegularizedLaplacian-class
 #' @examples
 #'
 #' library(igraph)

@@ -1,5 +1,4 @@
-
-#' Title
+#' Perturbed graph Laplacian transformation
 #'
 #' @slot tau numeric.
 #' @slot rsA numeric.
@@ -21,16 +20,66 @@ setClass(
 )
 
 
-#' Title
+#' Construct and use the Perturbed Laplacian
 #'
-#' @param A TODO
-#' @param tau TODO
-#' @param iform TODO
+#' @inheritParams transform
 #'
-#' @return TODO
+#' @param tau Additive regularizer for row and column sums of `abs(A)`.
+#'   Typically this corresponds to inflating the (absolute) out-degree
+#'   and the (absolute) in-degree of each node by `tau`. Defaults to
+#'   `NULL`, in which case we set `tau` to the mean value of `abs(A)`.
+#'
+#' @return
+#'
+#'   - `PerturbedLaplacian()` creates a [PerturbedLaplacian-class] object.
+#'
+#'   - `transform()` returns the transformed matrix,
+#'     typically as a [Matrix-class].
+#'
+#'   - `inverse_transform()` returns the inverse transformed matrix,
+#'     typically as a [Matrix-class].
+#'
 #' @export
 #'
-#' @rdname PerturbedLaplacian
+#'
+#' @details
+#'
+#' We define the *perturbed Laplacian* \eqn{L^\tau(A)}{L_tau(A)} of an
+#' \eqn{n \times n}{n by n} graph adjacency matrix \eqn{A} as
+#'
+#' \deqn{
+#'   L^\tau(A)_{ij} = \frac{A_{ij} + \frac{\tau}{n}}{\sqrt{d^\text{out}_i + \tau}
+#'   \sqrt{d^\text{in}_j + \tau}}
+#' }{
+#'   L[ij] = (A[ij] + \tau / n) / (sqrt(d^out[i] + \tau)  sqrt(d^in[j] + \tau))
+#' }
+#'
+#' where
+#'
+#' \deqn{
+#'   d^\text{out}_i = \sum_{j=1}^n \lvert A_{ij} \rvert
+#' }{
+#'   d^out[i] = sum_j abs(A[ij])
+#' }
+#'
+#' and
+#'
+#' \deqn{
+#'   d^\text{in}_j = \sum_{i=1}^n \lvert A_{ij} \rvert.
+#' }{
+#'   d^in[j] = sum_i abs(A[ij]).
+#' }
+#'
+#' When \eqn{A_{ij}}{A[ij]} denotes the present of an edge *from* node \eqn{i}
+#' *to* node \eqn{j}, which is fairly standard notation,
+#' \eqn{d^\text{out}_i}{d^out[i]} denotes the (absolute) out-degree of node
+#' \eqn{i} and \eqn{d^\text{in}_j}{d^in[j]} denotes the (absolute) in-degree
+#' of node \eqn{j}.
+#'
+#' Note that this documentation renders more clearly at
+#' <https://rohelab.github.io/invertiforms/>.
+#'
+#' @rdname PerturbedLaplacian-class
 #' @examples
 #'
 #' library(igraph)
