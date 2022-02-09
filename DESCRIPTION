@@ -1,5 +1,5 @@
 Package: invertiforms
-Title: Intervible transforms for matrix valued data
+Title: Invertible Transforms for Matrices
 Version: 0.0.0.9002
 Authors@R: 
     person(given = "Alex",

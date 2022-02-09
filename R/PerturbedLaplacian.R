@@ -48,8 +48,8 @@ setClass(
 #' \eqn{n \times n}{n by n} graph adjacency matrix \eqn{A} as
 #'
 #' \deqn{
-#'   L^\tau(A)_{ij} = \frac{A_{ij} + \frac{\tau}{n}}{\sqrt{d^\text{out}_i + \tau}
-#'   \sqrt{d^\text{in}_j + \tau}}
+#'   L^\tau(A)_{ij} = \frac{A_{ij} + \frac{\tau}{n}}{\sqrt{d^{out}_i + \tau}
+#'   \sqrt{d^{in}_j + \tau}}
 #' }{
 #'   L[ij] = (A[ij] + \tau / n) / (sqrt(d^out[i] + \tau)  sqrt(d^in[j] + \tau))
 #' }
@@ -57,7 +57,7 @@ setClass(
 #' where
 #'
 #' \deqn{
-#'   d^\text{out}_i = \sum_{j=1}^n \lvert A_{ij} \rvert
+#'   d^{out}_i = \sum_{j=1}^n \|A_{ij} \|
 #' }{
 #'   d^out[i] = sum_j abs(A[ij])
 #' }
@@ -65,15 +65,15 @@ setClass(
 #' and
 #'
 #' \deqn{
-#'   d^\text{in}_j = \sum_{i=1}^n \lvert A_{ij} \rvert.
+#'   d^{in}_j = \sum_{i=1}^n \|A_{ij} \|.
 #' }{
 #'   d^in[j] = sum_i abs(A[ij]).
 #' }
 #'
 #' When \eqn{A_{ij}}{A[ij]} denotes the present of an edge *from* node \eqn{i}
 #' *to* node \eqn{j}, which is fairly standard notation,
-#' \eqn{d^\text{out}_i}{d^out[i]} denotes the (absolute) out-degree of node
-#' \eqn{i} and \eqn{d^\text{in}_j}{d^in[j]} denotes the (absolute) in-degree
+#' \eqn{d^{out}_i}{d^out[i]} denotes the (absolute) out-degree of node
+#' \eqn{i} and \eqn{d^{in}_j}{d^in[j]} denotes the (absolute) in-degree
 #' of node \eqn{j}.
 #'
 #' Note that this documentation renders more clearly at

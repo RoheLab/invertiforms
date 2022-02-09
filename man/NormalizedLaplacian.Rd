@@ -36,7 +36,7 @@ We define the \emph{normalized Laplacian} \eqn{L(A)} of an
 \eqn{n \times n}{n by n} graph adjacency matrix \eqn{A} as
 
 \deqn{
-  L(A)_{ij} = \frac{A_{ij}}{\sqrt{d^\text{out}_i} \sqrt{d^\text{in}_j}}
+  L(A)_{ij} = \frac{A_{ij}}{\sqrt{d^{out}_i} \sqrt{d^{in}_j}}
 }{
   L[ij] = A[ij] / sqrt(d^out[i] d^in[j])
 }
@@ -44,7 +44,7 @@ We define the \emph{normalized Laplacian} \eqn{L(A)} of an
 where
 
 \deqn{
-  d^\text{out}_i = \sum_{j=1}^n \lvert A_{ij} \rvert
+  d^{out}_i = \sum_{j=1}^n \| A_{ij} \|
 }{
   d^out[i] = sum_j abs(A[ij])
 }
@@ -52,15 +52,15 @@ where
 and
 
 \deqn{
-  d^\text{in}_j = \sum_{i=1}^n \lvert A_{ij} \rvert.
+  d^{in}_j = \sum_{i=1}^n \| A_{ij} \|.
 }{
   d^in[j] = sum_i abs(A[ij]).
 }
 
 When \eqn{A_{ij}}{A[ij]} denotes the present of an edge \emph{from} node \eqn{i}
 \emph{to} node \eqn{j}, which is fairly standard notation,
-\eqn{d^\text{out}_i}{d^out[i]} denotes the (absolute) out-degree of node
-\eqn{i} and \eqn{d^\text{in}_j}{d^in[j]} denotes the (absolute) in-degree
+\eqn{d^{out}_i}{d^out[i]} denotes the (absolute) out-degree of node
+\eqn{i} and \eqn{d^{in}_j}{d^in[j]} denotes the (absolute) in-degree
 of node \eqn{j}.
 
 Note that this documentation renders most clearly at

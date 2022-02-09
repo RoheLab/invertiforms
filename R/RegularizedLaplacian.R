@@ -55,8 +55,8 @@ setClass(
 #' \eqn{n \times n}{n by n} graph adjacency matrix \eqn{A} as
 #'
 #' \deqn{
-#'   L^\tau(A)_{ij} = \frac{A_{ij}}{\sqrt{d^\text{out}_i + \tau_\text{row}}
-#'   \sqrt{d^\text{in}_j + \tau_\text{col}}}
+#'   L^\tau(A)_{ij} = \frac{A_{ij}}{\sqrt{d^{out}_i + \tau_{row}}
+#'   \sqrt{d^{in}_j + \tau_{col}}}
 #' }{
 #'   L[ij] = A[ij] / (sqrt(d^out[i] + \tau_row)  sqrt(d^in[j] + \tau_col))
 #' }
@@ -64,7 +64,7 @@ setClass(
 #' where
 #'
 #' \deqn{
-#'   d^\text{out}_i = \sum_{j=1}^n \lvert A_{ij} \rvert
+#'   d^{out}_i = \sum_{j=1}^n \| A_{ij} \|
 #' }{
 #'   d^out[i] = sum_j abs(A[ij])
 #' }
@@ -72,17 +72,17 @@ setClass(
 #' and
 #'
 #' \deqn{
-#'   d^\text{in}_j = \sum_{i=1}^n \lvert A_{ij} \rvert.
+#'   d^{in}_j = \sum_{i=1}^n \| A_{ij} \|.
 #' }{
 #'   d^in[j] = sum_i abs(A[ij]).
 #' }
 #'
 #' When \eqn{A_{ij}}{A[ij]} denotes the present of an edge *from* node \eqn{i}
 #' *to* node \eqn{j}, which is fairly standard notation,
-#' \eqn{d^\text{out}_i}{d^out[i]} denotes the (absolute) out-degree of node
-#' \eqn{i} and \eqn{d^\text{in}_j}{d^in[j]} denotes the (absolute) in-degree
-#' of node \eqn{j}. Then \eqn{\tau_\text{row}}{\tau_row} is an additive
-#' out-degree regularizer and \eqn{\tau_\text{col}}{\tau_col} is an
+#' \eqn{d^{out}_i}{d^out[i]} denotes the (absolute) out-degree of node
+#' \eqn{i} and \eqn{d^{in}_j}{d^in[j]} denotes the (absolute) in-degree
+#' of node \eqn{j}. Then \eqn{\tau_{row}}{\tau_row} is an additive
+#' out-degree regularizer and \eqn{\tau_{col}}{\tau_col} is an
 #' additive in-degree regularizer.
 #'
 #' Note that this documentation renders more clearly at

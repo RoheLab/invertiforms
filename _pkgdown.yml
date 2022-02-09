@@ -11,3 +11,15 @@ template:
   bootstrap: 5
   params:
     bootswatch: flatly
+
+reference:
+- title: "Generics"
+  contents:
+  - transform
+  - inverse_transform
+- title: "Transformation"
+  contents:
+  - DoubleCenter
+  - NormalizedLaplacian
+  - RegularizedLaplacian
+  - PerturbedLaplacian

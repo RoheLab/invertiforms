@@ -4,7 +4,7 @@
 \name{invertiforms-package}
 \alias{invertiforms}
 \alias{invertiforms-package}
-\title{invertiforms: Intervible transforms for matrix valued data}
+\title{invertiforms: Invertible Transforms for Matrices}
 \description{
 Provides composable invertible transforms for (sparse) matrices.
 }
