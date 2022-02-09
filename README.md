@@ -108,14 +108,21 @@ all.equal(A, A_recovered)
 ```
 
 Once we have `L` we can do spectral tricks with it. Here we estimate
-`k = 4` clusters.
+`k = 2` clusters.
 
 ``` r
 set.seed(27)
 
-k <- 4
+k <- 2
 L_svd <- svd(L, k)
-U <- L_svd$u
+
+safe_project_sphere_rowwise <- function(x, eps = 1e-10) {
+  sc <- drop(apply(x, 1L, function(y) sum(y^2)))
+  sc[sc < eps] <- 1
+  x / sqrt(sc)
+}
+
+U <- safe_project_sphere_rowwise(L_svd$u)
 km <- kmeans(U, k, nstart = 50)
 
 V(karate)$color <- km$cluster
