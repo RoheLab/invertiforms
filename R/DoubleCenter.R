@@ -37,7 +37,7 @@ setClass(
 #'     [Matrix::sparseMatrix()].
 #'
 #' @export
-#' @rdname DoubleCenter-class
+#' @rdname DoubleCenter
 #' @include s4-generics.R
 #'
 #' @examples

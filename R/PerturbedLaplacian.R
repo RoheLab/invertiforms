@@ -79,7 +79,7 @@ setClass(
 #' Note that this documentation renders more clearly at
 #' <https://rohelab.github.io/invertiforms/>.
 #'
-#' @rdname PerturbedLaplacian-class
+#' @rdname PerturbedLaplacian
 #' @examples
 #'
 #' library(igraph)

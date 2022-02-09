@@ -88,7 +88,7 @@ setClass(
 #' Note that this documentation renders more clearly at
 #' <https://rohelab.github.io/invertiforms/>.
 #'
-#' @rdname RegularizedLaplacian-class
+#' @rdname RegularizedLaplacian
 #' @examples
 #'
 #' library(igraph)

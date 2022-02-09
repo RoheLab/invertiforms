@@ -3,62 +3,9 @@
 \docType{class}
 \name{NormalizedLaplacian-class}
 \alias{NormalizedLaplacian-class}
-\alias{NormalizedLaplacian}
 \title{Normalized graph Laplacian transformation}
-\usage{
-NormalizedLaplacian(A)
-}
-\arguments{
-\item{A}{A matrix to transform.}
-}
-\value{
-\itemize{
-\item \code{NormalizedLaplacian()} creates a \linkS4class{NormalizedLaplacian} object.
-\item \code{transform()} returns the transformed matrix,
-typically as a \linkS4class{Matrix}.
-\item \code{inverse_transform()} returns the inverse transformed matrix,
-typically as a \linkS4class{Matrix}.
-}
-}
 \description{
-A convenience function to create \linkS4class{NormalizedLaplacian} S4 objects,
-which are useful for finding the normalized Laplacian of the
-adjacency matrix of a graph.
-}
-\details{
-We define the \emph{normalized Laplacian} \eqn{L(A)} of an
-\eqn{n \times n}{n by n} graph adjacency matrix \eqn{A} as
-
-\deqn{
-  L(A)_{ij} = \frac{A_{ij}}{\sqrt{d^\text{out}_i} \sqrt{d^\text{in}_j}}
-}{
-  L[ij] = A[ij] / sqrt(d^out[i] d^in[j])
-}
-
-where
-
-\deqn{
-  d^\text{out}_i = \sum_{j=1}^n \lvert A_{ij} \rvert
-}{
-  d^out[i] = sum_j abs(A[ij])
-}
-
-and
-
-\deqn{
-  d^\text{in}_j = \sum_{i=1}^n \lvert A_{ij} \rvert.
-}{
-  d^in[j] = sum_i abs(A[ij]).
-}
-
-When \eqn{A_{ij}}{A[ij]} denotes the present of an edge \emph{from} node \eqn{i}
-\emph{to} node \eqn{j}, which is fairly standard notation,
-\eqn{d^\text{out}_i}{d^out[i]} denotes the (absolute) out-degree of node
-\eqn{i} and \eqn{d^\text{in}_j}{d^in[j]} denotes the (absolute) in-degree
-of node \eqn{j}.
-
-Note that this documentation renders most clearly at
-\url{https://rohelab.github.io/invertiforms/}.
+Normalized graph Laplacian transformation
 }
 \section{Slots}{
 
@@ -68,20 +15,3 @@ Note that this documentation renders most clearly at
 \item{\code{csA}}{numeric.}
 }}
 
-\examples{
-
-library(igraph)
-library(igraphdata)
-
-data("karate", package = "igraphdata")
-
-A <- get.adjacency(karate)
-
-iform <- NormalizedLaplacian(A)
-
-L <- transform(iform, A)
-A_recovered <- inverse_transform(iform, L)
-
-all.equal(A, A_recovered)
-
-}

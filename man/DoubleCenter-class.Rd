@@ -3,29 +3,9 @@
 \docType{class}
 \name{DoubleCenter-class}
 \alias{DoubleCenter-class}
-\alias{DoubleCenter}
 \title{Row and column centering transformation}
-\usage{
-DoubleCenter(A)
-}
-\arguments{
-\item{A}{A matrix to transform.}
-}
-\value{
-\itemize{
-\item \code{DoubleCenter()} creates a \linkS4class{DoubleCenter} object.
-\item \code{transform()} returns the transformed matrix,
-typically as a \link[sparseLRMatrix:sparseLRMatrix-class]{sparseLRMatrix::sparseLRMatrix}.
-\item \code{inverse_transform()} returns the inverse transformed matrix,
-typically as a \link[sparseLRMatrix:sparseLRMatrix-class]{sparseLRMatrix::sparseLRMatrix} in most cases.
-When possible reduces the \link[sparseLRMatrix:sparseLRMatrix-class]{sparseLRMatrix::sparseLRMatrix} to a
-\code{\link[Matrix:sparseMatrix]{Matrix::sparseMatrix()}}.
-}
-}
 \description{
-A convenience function to create \linkS4class{DoubleCenter} S4 objects,
-which are useful for \strong{simultaneously row and column centering}
-a matrix.
+Row and column centering transformation
 }
 \section{Slots}{
 
@@ -37,20 +17,3 @@ a matrix.
 \item{\code{overall_mean}}{numeric.}
 }}
 
-\examples{
-
-library(igraph)
-library(igraphdata)
-
-data("karate", package = "igraphdata")
-
-A <- get.adjacency(karate)
-
-iform <- DoubleCenter(A)
-
-A_tilde <- transform(iform, A)
-A_recovered <- inverse_transform(iform, A_tilde)
-
-all.equal(A, A_recovered)
-
-}
