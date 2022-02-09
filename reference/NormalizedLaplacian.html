@@ -83,20 +83,20 @@ typically as a <a href="https://rdrr.io/pkg/Matrix/man/Matrix-class.html" class=
     <p>We define the <em>normalized Laplacian</em> \(L(A)\) of an
 \(n \times n\) graph adjacency matrix \(A\) as</p>
 <p>$$
-  L(A)_{ij} = \frac{A_{ij}}{\sqrt{d^\text{out}_i} \sqrt{d^\text{in}_j}}
+  L(A)_{ij} = \frac{A_{ij}}{\sqrt{d^{out}_i} \sqrt{d^{in}_j}}
 $$</p>
 <p>where</p>
 <p>$$
-  d^\text{out}_i = \sum_{j=1}^n \lvert A_{ij} \rvert
+  d^{out}_i = \sum_{j=1}^n \| A_{ij} \|
 $$</p>
 <p>and</p>
 <p>$$
-  d^\text{in}_j = \sum_{i=1}^n \lvert A_{ij} \rvert.
+  d^{in}_j = \sum_{i=1}^n \| A_{ij} \|.
 $$</p>
 <p>When \(A_{ij}\) denotes the present of an edge <em>from</em> node \(i\)
 <em>to</em> node \(j\), which is fairly standard notation,
-\(d^\text{out}_i\) denotes the (absolute) out-degree of node
-\(i\) and \(d^\text{in}_j\) denotes the (absolute) in-degree
+\(d^{out}_i\) denotes the (absolute) out-degree of node
+\(i\) and \(d^{in}_j\) denotes the (absolute) in-degree
 of node \(j\).</p>
 <p>Note that this documentation renders most clearly at
 <a href="https://rohelab.github.io/invertiforms/">https://rohelab.github.io/invertiforms/</a>.</p>

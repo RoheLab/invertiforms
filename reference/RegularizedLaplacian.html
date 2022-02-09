@@ -99,23 +99,23 @@ typically as a <a href="https://rdrr.io/pkg/Matrix/man/Matrix-class.html" class=
     <p>We define the <em>regularized Laplacian</em> \(L^\tau(A)\) of an
 \(n \times n\) graph adjacency matrix \(A\) as</p>
 <p>$$
-  L^\tau(A)_{ij} = \frac{A_{ij}}{\sqrt{d^\text{out}_i + \tau_\text{row}}
-  \sqrt{d^\text{in}_j + \tau_\text{col}}}
+  L^\tau(A)_{ij} = \frac{A_{ij}}{\sqrt{d^{out}_i + \tau_{row}}
+  \sqrt{d^{in}_j + \tau_{col}}}
 $$</p>
 <p>where</p>
 <p>$$
-  d^\text{out}_i = \sum_{j=1}^n \lvert A_{ij} \rvert
+  d^{out}_i = \sum_{j=1}^n \| A_{ij} \|
 $$</p>
 <p>and</p>
 <p>$$
-  d^\text{in}_j = \sum_{i=1}^n \lvert A_{ij} \rvert.
+  d^{in}_j = \sum_{i=1}^n \| A_{ij} \|.
 $$</p>
 <p>When \(A_{ij}\) denotes the present of an edge <em>from</em> node \(i\)
 <em>to</em> node \(j\), which is fairly standard notation,
-\(d^\text{out}_i\) denotes the (absolute) out-degree of node
-\(i\) and \(d^\text{in}_j\) denotes the (absolute) in-degree
-of node \(j\). Then \(\tau_\text{row}\) is an additive
-out-degree regularizer and \(\tau_\text{col}\) is an
+\(d^{out}_i\) denotes the (absolute) out-degree of node
+\(i\) and \(d^{in}_j\) denotes the (absolute) in-degree
+of node \(j\). Then \(\tau_{row}\) is an additive
+out-degree regularizer and \(\tau_{col}\) is an
 additive in-degree regularizer.</p>
 <p>Note that this documentation renders more clearly at
 <a href="https://rohelab.github.io/invertiforms/">https://rohelab.github.io/invertiforms/</a>.</p>
