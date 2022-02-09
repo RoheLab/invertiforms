@@ -80,11 +80,21 @@ typically as a <a href="https://rdrr.io/pkg/Matrix/man/Matrix-class.html" class=
 </ul></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>We define the <em>normalized Laplacian</em> \(L(A)\) of a graph adjacency matrix
-as</p>
+    <p>We define the <em>normalized Laplacian</em> \(L(A)\) of an
+\(n \times n\) graph adjacency matrix \(A\) as</p>
 <p>$$
-  L(A)[ij] = \frac{A[ij]}{\sqrt{d[i]} \sqrt{d[j]}}
+  L(A)_{ij} = \frac{A_{ij}}{\sqrt{d^\text{out}_i} \sqrt{d^\text{in}_j}}
 $$</p>
+<p>where</p>
+<p>$$
+  d^\text{out}_i = \sum_{j=1}^n \lvert A_{ij} \rvert
+$$</p>
+<p>and</p>
+<p>$$
+  d^\text{in}_j = \sum_{i=1}^n \lvert A_{ij} \rvert.
+$$</p>
+<p>Note that this documentation renders more clearly at
+<a href="https://rohelab.github.io/invertiforms/">https://rohelab.github.io/invertiforms/</a>.</p>
     </div>
 
     <div class="section level2">
