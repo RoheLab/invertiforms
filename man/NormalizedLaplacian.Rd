@@ -29,8 +29,17 @@ typically as a \linkS4class{Matrix}.
 \description{
 A convenience function to create \linkS4class{NormalizedLaplacian} S4 objects,
 which are useful for finding the normalized Laplacian of the
-adjacency matrix of a graph. Computes the normalized Laplacian as
-\code{D_in \%*\% A \%*\% D_out} where \code{D_in} is a diagonal matrix with TODO.
+adjacency matrix of a graph.
+}
+\details{
+We define the \emph{normalized Laplacian} \eqn{L(A)} of a graph adjacency matrix
+as
+
+\deqn{
+  L(A)[ij] = \frac{A[ij]}{\sqrt{d[i]} \sqrt{d[j]}}
+}{
+  L_ij = A_ij / sqrt(d^in_i d^out_j)
+}
 }
 \examples{
 
