@@ -22,14 +22,33 @@ setClass(
 #'
 #' @details
 #'
-#' We define the *normalized Laplacian* \eqn{L(A)} of a graph adjacency matrix
-#' as
+#' We define the *normalized Laplacian* \eqn{L(A)} of an
+#' \eqn{n \times n}{n by n} graph adjacency matrix \eqn{A} as
 #'
 #' \deqn{
-#'   L(A)[ij] = \frac{A[ij]}{\sqrt{d[i]} \sqrt{d[j]}}
+#'   L(A)_{ij} = \frac{A_{ij}}{\sqrt{d^\text{out}_i} \sqrt{d^\text{in}_j}}
 #' }{
-#'   L_ij = A_ij / sqrt(d^in_i d^out_j)
+#'   L[ij] = A[ij] / sqrt(d^out[i] d^in[j])
 #' }
+#'
+#' where
+#'
+#' \deqn{
+#'   d^\text{out}_i = \sum_{j=1}^n \lvert A_{ij} \rvert
+#' }{
+#'   d^out[i] = sum_j abs(A[ij])
+#' }
+#'
+#' and
+#'
+#' \deqn{
+#'   d^\text{in}_j = \sum_{i=1}^n \lvert A_{ij} \rvert.
+#' }{
+#'   d^in[j] = sum_i abs(A[ij]).
+#' }
+#'
+#' Note that this documentation renders more clearly at
+#' <https://rohelab.github.io/invertiforms/>.
 #'
 #' @inheritParams transform
 #'
