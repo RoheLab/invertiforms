@@ -17,9 +17,12 @@ reference:
   contents:
   - transform
   - inverse_transform
-- title: "Transformation"
+- title: "Transformation helpers"
   contents:
   - DoubleCenter
   - NormalizedLaplacian
   - RegularizedLaplacian
   - PerturbedLaplacian
+- title: "S4 Classes"
+  contents:
+  - contains("-class")
