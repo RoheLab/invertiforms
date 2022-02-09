@@ -1,6 +1,6 @@
 Package: invertiforms
 Title: Invertible Transforms for Matrices
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: 
     person(given = "Alex",
            family = "Hayes",
