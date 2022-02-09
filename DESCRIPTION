@@ -10,7 +10,8 @@ Authors@R:
 Description: Provides composable invertible transforms for
     (sparse) matrices.
 License: MIT + file LICENSE
-URL: https://rohelab.github.io/invertiforms, https://github.com/RoheLab/invertiforms
+URL: https://rohelab.github.io/invertiforms/,
+    https://github.com/RoheLab/invertiforms
 BugReports: https://github.com/RoheLab/invertiforms/issues
 Depends: 
     Matrix,
@@ -21,7 +22,6 @@ Imports:
 Suggests: 
     covr,
     testthat,
-    clue,
     igraph,
     igraphdata
 Encoding: UTF-8

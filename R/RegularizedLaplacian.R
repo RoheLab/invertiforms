@@ -8,7 +8,6 @@
 #' @slot tau_choice_row character.
 #' @slot tau_choice_col character.
 #'
-#' @return TODO
 #' @export
 #' @include s4-generics.R
 #'

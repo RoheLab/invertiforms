@@ -11,7 +11,7 @@ Provides composable invertible transforms for (sparse) matrices.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://rohelab.github.io/invertiforms}
+  \item \url{https://rohelab.github.io/invertiforms/}
   \item \url{https://github.com/RoheLab/invertiforms}
   \item Report bugs at \url{https://github.com/RoheLab/invertiforms/issues}
 }

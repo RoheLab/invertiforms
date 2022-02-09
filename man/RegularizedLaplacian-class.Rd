@@ -4,9 +4,6 @@
 \name{RegularizedLaplacian-class}
 \alias{RegularizedLaplacian-class}
 \title{Title}
-\value{
-TODO
-}
 \description{
 Title
 }

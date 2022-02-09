@@ -19,20 +19,18 @@ NormalizedLaplacian(A)
 }
 \value{
 \itemize{
-\item \code{DoubleCenter()} creates a \linkS4class{DoubleCenter} object.
+\item \code{NormalizedLaplacian()} creates a \linkS4class{NormalizedLaplacian} object.
 \item \code{transform()} returns the transformed matrix,
-typically as a \link[sparseLRMatrix:sparseLRMatrix-class]{sparseLRMatrix::sparseLRMatrix}.
+typically as a \linkS4class{Matrix}.
 \item \code{inverse_transform()} returns the inverse transformed matrix,
-typically as a \link[sparseLRMatrix:sparseLRMatrix-class]{sparseLRMatrix::sparseLRMatrix} in most cases.
-When possible reduces the \link[sparseLRMatrix:sparseLRMatrix-class]{sparseLRMatrix::sparseLRMatrix} to a
-\code{\link[Matrix:sparseMatrix]{Matrix::sparseMatrix()}}.
+typically as a \linkS4class{Matrix}.
 }
 }
 \description{
 A convenience function to create \linkS4class{NormalizedLaplacian} S4 objects,
 which are useful for finding the normalized Laplacian of the
 adjacency matrix of a graph. Computes the normalized Laplacian as
-TODO.
+\code{D_in \%*\% A \%*\% D_out} where \code{D_in} is a diagonal matrix with TODO.
 }
 \examples{
 

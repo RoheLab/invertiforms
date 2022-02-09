@@ -16,16 +16,11 @@ knitr::opts_chunk$set(
 # invertiforms
 
 <!-- badges: start -->
-[![Codecov test coverage](https://codecov.io/gh/RoheLab/invertiforms/branch/master/graph/badge.svg)](https://codecov.io/gh/RoheLab/invertiforms?branch=master)
 [![R-CMD-check](https://github.com/RoheLab/invertiforms/workflows/R-CMD-check/badge.svg)](https://github.com/RoheLab/invertiforms/actions)
-[![CRAN status](https://www.r-pkg.org/badges/version/invertiforms)](https://CRAN.R-project.org/package=invertiforms)
+[![Codecov test coverage](https://codecov.io/gh/RoheLab/invertiforms/branch/master/graph/badge.svg)](https://app.codecov.io/gh/RoheLab/invertiforms?branch=master)
 <!-- badges: end -->
 
-The goal of invertiforms is to ...
-
-composable transformations. could have a sparse matrix representing a graph, first row and column center it, then find the graph Laplacian of the centered matrix, decompose that matrix, and then use inverse transformations to inverse transform the results back to the original scale
-
-probably most useful for you is the quick graph Laplacian formation
+The goal of invertiforms is to provide composable, invertible transformations of sparse matrices. These transformations are primarily useful for network analysis. For example, we provide transforms to row and column center a graph adjacency matrix. This transformation could then be composed with a degree-normalized transformation, and so on. The original adjacency matrix can be recovered by applying inverse transformation. Primarily, this package is for other developers working on spectral matrix packages, but it may also be useful for advanced users who don't want to go to the hassle of coding up matrix transformations on their own.
 
 ## Installation
 
@@ -35,43 +30,74 @@ You can install the released version of invertiforms from [CRAN](https://CRAN.R-
 install.packages("invertiforms")
 ```
 
+You can install the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("RoheLab/invertiforms")
+```
+
+## Transformations
+
+At the moment, we provide convenient tools to:
+
+- row center,
+- column center, and
+- row and column center
+
+a matrix. Similarly, we provide tools to transform a graph adjacency matrix into the:
+
+- normalized graph Laplacian,
+- regularized graph Laplacian, and
+- perturbed graph Laplacian.
+
+## Example usage
+
+Here we show how `invertiforms` might help you quickly perform regularized spectral clustering. First we grab some network data and quickly visualize the adjacency matrix.
+
+
 ```{r}
 library(invertiforms)
-
 library(igraph)
 library(igraphdata)
 
 data("karate", package = "igraphdata")
 
 A <- get.adjacency(karate)
+image(A)
+```
 
-iform <- NormalizedLaplacian(A)
+Now we construct the regularized degree normalized graph Laplacian and visualize it.
+
+```{r}
+iform <- RegularizedLaplacian(A, tau_row = 35, tau_col = 35)
 
 L <- transform(iform, A)
-L
+image(L)
+```
 
+Recovering `A` from `L` is straightforward:
+
+```{r}
 A_recovered <- inverse_transform(iform, L)
 
 all.equal(A, A_recovered)
 ```
 
+Once we have `L` we can do spectral tricks with it. Here we estimate `k = 4` clusters.
 
+```{r}
+set.seed(27)
 
-## composable
+k <- 4
+L_svd <- svd(L, k)
+U <- L_svd$u
+km <- kmeans(U, k, nstart = 50)
 
-## Current transforms
+V(karate)$color <- km$cluster
+plot(karate)
+```
 
-- row center
-- column center
-- double center
-- normalized graph laplacian
-- regularized graph laplacian
-- perturbed graph laplacian
+## Related work
 
-
-
-## related work
-
-- separate transformer based objects like recipes
-- Incomplete S4 class in softImpute
-
+[`recipes`](https://cran.r-project.org/package=recipes) provides non-invertible, composable transformations for tabular data. [`softImpute`](https://cran.r-project.org/package=softImpute) provides an `Incomplete` S4 Matrix class that can be used for double centering sparse matrices.

@@ -19,21 +19,19 @@ setClass(
 #' A convenience function to create [NormalizedLaplacian-class] S4 objects,
 #' which are useful for finding the normalized Laplacian of the
 #' adjacency matrix of a graph. Computes the normalized Laplacian as
-#' TODO.
+#' `D_in %*% A %*% D_out` where `D_in` is a diagonal matrix with TODO.
 #'
 #' @inheritParams transform
 #'
 #' @return
 #'
-#'   - `DoubleCenter()` creates a [DoubleCenter-class] object.
+#'   - `NormalizedLaplacian()` creates a [NormalizedLaplacian-class] object.
 #'
 #'   - `transform()` returns the transformed matrix,
-#'     typically as a [sparseLRMatrix::sparseLRMatrix-class].
+#'     typically as a [Matrix-class].
 #'
 #'   - `inverse_transform()` returns the inverse transformed matrix,
-#'     typically as a [sparseLRMatrix::sparseLRMatrix-class] in most cases.
-#'     When possible reduces the [sparseLRMatrix::sparseLRMatrix-class] to a
-#'     [Matrix::sparseMatrix()].
+#'     typically as a [Matrix-class].
 #'
 #' @export
 #' @include s4-generics.R
