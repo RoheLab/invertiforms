@@ -4,14 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Provides composable invertible transforms for
+    (sparse) matrices.">
 <title>Intervible transforms for matrix valued data • invertiforms</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/paper/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
-<script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Intervible transforms for matrix valued data">
+<!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Intervible transforms for matrix valued data">
 <meta property="og:description" content="Provides composable invertible transforms for
     (sparse) matrices.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -19,76 +20,91 @@
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body data-spy="scroll" data-target="#toc">
-    <div class="container template-home">
-      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">invertiforms</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="Unreleased version">0.0.0.9002</span>
-      </span>
-    </div>
+<body>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
+    
 
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
-  <a href="reference/index.html">Reference</a>
+    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary"><div class="container">
+    
+    <a class="navbar-brand me-2" href="index.html">invertiforms</a>
+
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9002</small>
+
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar" class="collapse navbar-collapse ms-3">
+      <ul class="navbar-nav me-auto">
+<li class="nav-item">
+  <a class="nav-link" href="reference/index.html">Reference</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="https://github.com/RoheLab/invertiforms/">
-    <span class="fab fa-github fa-lg"></span>
+<form class="form-inline my-2 my-lg-0" role="search">
+        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off">
+</form>
+
+      <ul class="navbar-nav">
+<li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/RoheLab/invertiforms/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
       </ul>
 </div>
-<!--/.nav-collapse -->
+
+    
   </div>
-<!--/.container -->
-</div>
-<!--/.navbar -->
-
-      
-
-      </header><div class="row">
-  <div class="contents col-md-9">
-<div id="invertiforms" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#invertiforms" class="anchor"></a>invertiforms</h1></div>
+</nav><div class="container template-home">
+<div class="row">
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header"><h1 id="invertiforms">invertiforms<a class="anchor" aria-label="anchor" href="#invertiforms"></a>
+</h1></div>
 <!-- badges: start -->
 
-<p>The goal of invertiforms is to …</p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of invertiforms from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
+<p>The goal of invertiforms is to provide composable, invertible transformations of sparse matrices. These transformations are primarily useful for network analysis. For example, we provide transforms to row and column center a graph adjacency matrix. This transformation could then be composed with a degree-normalized transformation, and so on. The original adjacency matrix can be recovered by applying inverse transformation. Primarily, this package is for other developers working on spectral matrix packages, but it may also be useful for advanced users who don’t want to go to the hassle of coding up matrix transformations on their own.</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>You can install the released version of invertiforms from <a href="https://CRAN.R-project.org" class="external-link">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"invertiforms"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"invertiforms"</span><span class="op">)</span></code></pre></div>
+<p>You can install the development version from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rohelab.github.io/invertiforms">invertiforms</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"RoheLab/invertiforms"</span><span class="op">)</span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="transformations">Transformations<a class="anchor" aria-label="anchor" href="#transformations"></a>
+</h2>
+<p>At the moment, we provide convenient tools to:</p>
+<ul>
+<li>row center,</li>
+<li>column center, and</li>
+<li>row and column center</li>
+</ul>
+<p>a matrix. Similarly, we provide tools to transform a graph adjacency matrix into the:</p>
+<ul>
+<li>normalized graph Laplacian,</li>
+<li>regularized graph Laplacian, and</li>
+<li>perturbed graph Laplacian.</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="example-usage">Example usage<a class="anchor" aria-label="anchor" href="#example-usage"></a>
+</h2>
+<p>Here we show how <code>invertiforms</code> might help you quickly perform regularized spectral clustering. First we grab some network data and quickly visualize the adjacency matrix.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rohelab.github.io/invertiforms/">invertiforms</a></span><span class="op">)</span>
 <span class="co">#&gt; Loading required package: Matrix</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attaching package: 'invertiforms'</span>
 <span class="co">#&gt; The following object is masked from 'package:base':</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;     transform</span>
-
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://igraph.org">igraph</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://igraph.org" class="external-link">igraph</a></span><span class="op">)</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Attaching package: 'igraph'</span>
 <span class="co">#&gt; The following objects are masked from 'package:stats':</span>
@@ -97,311 +113,105 @@
 <span class="co">#&gt; The following object is masked from 'package:base':</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;     union</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://igraph.org">igraphdata</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://igraph.org" class="external-link">igraphdata</a></span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="st">"karate"</span>, package <span class="op">=</span> <span class="st">"igraphdata"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"karate"</span>, package <span class="op">=</span> <span class="st">"igraphdata"</span><span class="op">)</span>
 
-<span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/igraph/man/as_adjacency_matrix.html">get.adjacency</a></span><span class="op">(</span><span class="va">karate</span><span class="op">)</span>
-
-<span class="va">iform</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/NormalizedLaplacian.html">NormalizedLaplacian</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span>
+<span class="va">A</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/igraph/man/as_adjacency_matrix.html" class="external-link">get.adjacency</a></span><span class="op">(</span><span class="va">karate</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/image.html" class="external-link">image</a></span><span class="op">(</span><span class="va">A</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"></p>
+<p>Now we construct the regularized degree normalized graph Laplacian and visualize it.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">iform</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/RegularizedLaplacian.html">RegularizedLaplacian</a></span><span class="op">(</span><span class="va">A</span>, tau_row <span class="op">=</span> <span class="fl">35</span>, tau_col <span class="op">=</span> <span class="fl">35</span><span class="op">)</span>
 
 <span class="va">L</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/transform.html">transform</a></span><span class="op">(</span><span class="va">iform</span>, <span class="va">A</span><span class="op">)</span>
-<span class="va">L</span>
-<span class="co">#&gt; 34 x 34 sparse Matrix of class "dgCMatrix"</span>
-<span class="co">#&gt;    [[ suppressing 34 column names 'Mr Hi', 'Actor 2', 'Actor 3' ... ]]</span>
-<span class="co">#&gt;                                                                        </span>
-<span class="co">#&gt; Mr Hi    .          0.08333333 0.07905694 0.1020621 0.1443376 0.1250000</span>
-<span class="co">#&gt; Actor 2  0.08333333 .          0.10540926 0.1360828 .         .        </span>
-<span class="co">#&gt; Actor 3  0.07905694 0.10540926 .          0.1290994 .         .        </span>
-<span class="co">#&gt; Actor 4  0.10206207 0.13608276 0.12909944 .         .         .        </span>
-<span class="co">#&gt; Actor 5  0.14433757 .          .          .         .         .        </span>
-<span class="co">#&gt; Actor 6  0.12500000 .          .          .         .         .        </span>
-<span class="co">#&gt; Actor 7  0.12500000 .          .          .         0.2886751 0.2500000</span>
-<span class="co">#&gt; Actor 8  0.12500000 0.16666667 0.15811388 0.2041241 .         .        </span>
-<span class="co">#&gt; Actor 9  0.11180340 .          0.14142136 .         .         .        </span>
-<span class="co">#&gt; Actor 10 .          .          0.22360680 .         .         .        </span>
-<span class="co">#&gt; Actor 11 0.14433757 .          .          .         0.3333333 0.2886751</span>
-<span class="co">#&gt; Actor 12 0.25000000 .          .          .         .         .        </span>
-<span class="co">#&gt; Actor 13 0.17677670 .          .          0.2886751 .         .        </span>
-<span class="co">#&gt; Actor 14 0.11180340 0.14907120 0.14142136 0.1825742 .         .        </span>
-<span class="co">#&gt; Actor 15 .          .          .          .         .         .        </span>
-<span class="co">#&gt; Actor 16 .          .          .          .         .         .        </span>
-<span class="co">#&gt; Actor 17 .          .          .          .         .         0.3535534</span>
-<span class="co">#&gt; Actor 18 0.17677670 0.23570226 .          .         .         .        </span>
-<span class="co">#&gt; Actor 19 .          .          .          .         .         .        </span>
-<span class="co">#&gt; Actor 20 0.14433757 0.19245009 .          .         .         .        </span>
-<span class="co">#&gt; Actor 21 .          .          .          .         .         .        </span>
-<span class="co">#&gt; Actor 22 0.17677670 0.23570226 .          .         .         .        </span>
-<span class="co">#&gt; Actor 23 .          .          .          .         .         .        </span>
-<span class="co">#&gt; Actor 24 .          .          .          .         .         .        </span>
-<span class="co">#&gt; Actor 25 .          .          .          .         .         .        </span>
-<span class="co">#&gt; Actor 26 .          .          .          .         .         .        </span>
-<span class="co">#&gt; Actor 27 .          .          .          .         .         .        </span>
-<span class="co">#&gt; Actor 28 .          .          0.15811388 .         .         .        </span>
-<span class="co">#&gt; Actor 29 .          .          0.18257419 .         .         .        </span>
-<span class="co">#&gt; Actor 30 .          .          .          .         .         .        </span>
-<span class="co">#&gt; Actor 31 .          0.16666667 .          .         .         .        </span>
-<span class="co">#&gt; Actor 32 0.10206207 .          .          .         .         .        </span>
-<span class="co">#&gt; Actor 33 .          .          0.09128709 .         .         .        </span>
-<span class="co">#&gt; John A   .          .          .          .         .         .        </span>
-<span class="co">#&gt;                                                                          </span>
-<span class="co">#&gt; Mr Hi    0.1250000 0.1250000 0.1118034 .         0.1443376 0.25 0.1767767</span>
-<span class="co">#&gt; Actor 2  .         0.1666667 .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 3  .         0.1581139 0.1414214 0.2236068 .         .    .        </span>
-<span class="co">#&gt; Actor 4  .         0.2041241 .         .         .         .    0.2886751</span>
-<span class="co">#&gt; Actor 5  0.2886751 .         .         .         0.3333333 .    .        </span>
-<span class="co">#&gt; Actor 6  0.2500000 .         .         .         0.2886751 .    .        </span>
-<span class="co">#&gt; Actor 7  .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 8  .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 9  .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 10 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 11 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 12 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 13 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 14 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 15 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 16 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 17 0.3535534 .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 18 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 19 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 20 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 21 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 22 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 23 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 24 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 25 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 26 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 27 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 28 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 29 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 30 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 31 .         .         0.2236068 .         .         .    .        </span>
-<span class="co">#&gt; Actor 32 .         .         .         .         .         .    .        </span>
-<span class="co">#&gt; Actor 33 .         .         0.1290994 .         .         .    .        </span>
-<span class="co">#&gt; John A   .         .         0.1084652 0.1714986 .         .    .        </span>
-<span class="co">#&gt;                                                                               </span>
-<span class="co">#&gt; Mr Hi    0.1118034 .         .         .         0.1767767 .         0.1443376</span>
-<span class="co">#&gt; Actor 2  0.1490712 .         .         .         0.2357023 .         0.1924501</span>
-<span class="co">#&gt; Actor 3  0.1414214 .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 4  0.1825742 .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 5  .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 6  .         .         .         0.3535534 .         .         .        </span>
-<span class="co">#&gt; Actor 7  .         .         .         0.3535534 .         .         .        </span>
-<span class="co">#&gt; Actor 8  .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 9  .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 10 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 11 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 12 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 13 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 14 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 15 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 16 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 17 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 18 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 19 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 20 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 21 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 22 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 23 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 24 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 25 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 26 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 27 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 28 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 29 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 30 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 31 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 32 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 33 .         0.2041241 0.2041241 .         .         0.2041241 .        </span>
-<span class="co">#&gt; John A   0.1084652 0.1714986 0.1714986 .         .         0.1714986 0.1400280</span>
-<span class="co">#&gt;                                                                               </span>
-<span class="co">#&gt; Mr Hi    .         0.1767767 .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 2  .         0.2357023 .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 3  .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 4  .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 5  .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 6  .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 7  .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 8  .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 9  .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 10 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 11 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 12 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 13 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 14 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 15 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 16 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 17 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 18 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 19 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 20 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 21 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 22 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 23 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 24 .         .         .         .         .         0.2581989 .        </span>
-<span class="co">#&gt; Actor 25 .         .         .         .         .         0.3333333 .        </span>
-<span class="co">#&gt; Actor 26 .         .         .         0.2581989 0.3333333 .         .        </span>
-<span class="co">#&gt; Actor 27 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 28 .         .         .         0.2236068 0.2886751 .         .        </span>
-<span class="co">#&gt; Actor 29 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 30 .         .         .         0.2236068 .         .         0.3535534</span>
-<span class="co">#&gt; Actor 31 .         .         .         .         .         .         .        </span>
-<span class="co">#&gt; Actor 32 .         .         .         .         0.2357023 0.2357023 .        </span>
-<span class="co">#&gt; Actor 33 0.2041241 .         0.2041241 0.1290994 .         .         .        </span>
-<span class="co">#&gt; John A   0.1714986 .         0.1714986 0.1084652 .         .         0.1714986</span>
-<span class="co">#&gt;                                                                       </span>
-<span class="co">#&gt; Mr Hi    .         .         .         .         0.10206207 .         </span>
-<span class="co">#&gt; Actor 2  .         .         .         0.1666667 .          .         </span>
-<span class="co">#&gt; Actor 3  0.1581139 0.1825742 .         .         .          0.09128709</span>
-<span class="co">#&gt; Actor 4  .         .         .         .         .          .         </span>
-<span class="co">#&gt; Actor 5  .         .         .         .         .          .         </span>
-<span class="co">#&gt; Actor 6  .         .         .         .         .          .         </span>
-<span class="co">#&gt; Actor 7  .         .         .         .         .          .         </span>
-<span class="co">#&gt; Actor 8  .         .         .         .         .          .         </span>
-<span class="co">#&gt; Actor 9  .         .         .         0.2236068 .          0.12909944</span>
-<span class="co">#&gt; Actor 10 .         .         .         .         .          .         </span>
-<span class="co">#&gt; Actor 11 .         .         .         .         .          .         </span>
-<span class="co">#&gt; Actor 12 .         .         .         .         .          .         </span>
-<span class="co">#&gt; Actor 13 .         .         .         .         .          .         </span>
-<span class="co">#&gt; Actor 14 .         .         .         .         .          .         </span>
-<span class="co">#&gt; Actor 15 .         .         .         .         .          0.20412415</span>
-<span class="co">#&gt; Actor 16 .         .         .         .         .          0.20412415</span>
-<span class="co">#&gt; Actor 17 .         .         .         .         .          .         </span>
-<span class="co">#&gt; Actor 18 .         .         .         .         .          .         </span>
-<span class="co">#&gt; Actor 19 .         .         .         .         .          0.20412415</span>
-<span class="co">#&gt; Actor 20 .         .         .         .         .          .         </span>
-<span class="co">#&gt; Actor 21 .         .         .         .         .          0.20412415</span>
-<span class="co">#&gt; Actor 22 .         .         .         .         .          .         </span>
-<span class="co">#&gt; Actor 23 .         .         .         .         .          0.20412415</span>
-<span class="co">#&gt; Actor 24 0.2236068 .         0.2236068 .         .          0.12909944</span>
-<span class="co">#&gt; Actor 25 0.2886751 .         .         .         0.23570226 .         </span>
-<span class="co">#&gt; Actor 26 .         .         .         .         0.23570226 .         </span>
-<span class="co">#&gt; Actor 27 .         .         0.3535534 .         .          .         </span>
-<span class="co">#&gt; Actor 28 .         .         .         .         .          .         </span>
-<span class="co">#&gt; Actor 29 .         .         .         .         0.23570226 .         </span>
-<span class="co">#&gt; Actor 30 .         .         .         .         .          0.14433757</span>
-<span class="co">#&gt; Actor 31 .         .         .         .         .          0.14433757</span>
-<span class="co">#&gt; Actor 32 .         0.2357023 .         .         .          0.11785113</span>
-<span class="co">#&gt; Actor 33 .         .         0.1443376 0.1443376 0.11785113 .         </span>
-<span class="co">#&gt; John A   0.1212678 0.1400280 0.1212678 0.1212678 0.09901475 0.07001400</span>
-<span class="co">#&gt;                    </span>
-<span class="co">#&gt; Mr Hi    .         </span>
-<span class="co">#&gt; Actor 2  .         </span>
-<span class="co">#&gt; Actor 3  .         </span>
-<span class="co">#&gt; Actor 4  .         </span>
-<span class="co">#&gt; Actor 5  .         </span>
-<span class="co">#&gt; Actor 6  .         </span>
-<span class="co">#&gt; Actor 7  .         </span>
-<span class="co">#&gt; Actor 8  .         </span>
-<span class="co">#&gt; Actor 9  0.10846523</span>
-<span class="co">#&gt; Actor 10 0.17149859</span>
-<span class="co">#&gt; Actor 11 .         </span>
-<span class="co">#&gt; Actor 12 .         </span>
-<span class="co">#&gt; Actor 13 .         </span>
-<span class="co">#&gt; Actor 14 0.10846523</span>
-<span class="co">#&gt; Actor 15 0.17149859</span>
-<span class="co">#&gt; Actor 16 0.17149859</span>
-<span class="co">#&gt; Actor 17 .         </span>
-<span class="co">#&gt; Actor 18 .         </span>
-<span class="co">#&gt; Actor 19 0.17149859</span>
-<span class="co">#&gt; Actor 20 0.14002801</span>
-<span class="co">#&gt; Actor 21 0.17149859</span>
-<span class="co">#&gt; Actor 22 .         </span>
-<span class="co">#&gt; Actor 23 0.17149859</span>
-<span class="co">#&gt; Actor 24 0.10846523</span>
-<span class="co">#&gt; Actor 25 .         </span>
-<span class="co">#&gt; Actor 26 .         </span>
-<span class="co">#&gt; Actor 27 0.17149859</span>
-<span class="co">#&gt; Actor 28 0.12126781</span>
-<span class="co">#&gt; Actor 29 0.14002801</span>
-<span class="co">#&gt; Actor 30 0.12126781</span>
-<span class="co">#&gt; Actor 31 0.12126781</span>
-<span class="co">#&gt; Actor 32 0.09901475</span>
-<span class="co">#&gt; Actor 33 0.07001400</span>
-<span class="co">#&gt; John A   .</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/image.html" class="external-link">image</a></span><span class="op">(</span><span class="va">L</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="100%"></p>
+<p>Recovering <code>A</code> from <code>L</code> is straightforward:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">A_recovered</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/inverse_transform.html">inverse_transform</a></span><span class="op">(</span><span class="va">iform</span>, <span class="va">L</span><span class="op">)</span>
 
-<span class="va">A_recovered</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/inverse_transform.html">inverse_transform</a></span><span class="op">(</span><span class="va">iform</span>, <span class="va">L</span><span class="op">)</span>
-
-<span class="fu"><a href="https://rdrr.io/r/base/all.equal.html">all.equal</a></span><span class="op">(</span><span class="va">A</span>, <span class="va">A_recovered</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/all.equal.html" class="external-link">all.equal</a></span><span class="op">(</span><span class="va">A</span>, <span class="va">A_recovered</span><span class="op">)</span>
 <span class="co">#&gt; [1] TRUE</span></code></pre></div>
-</div>
-<div id="composable" class="section level2">
-<h2 class="hasAnchor">
-<a href="#composable" class="anchor"></a>composable</h2>
-</div>
-<div id="current-transforms" class="section level2">
-<h2 class="hasAnchor">
-<a href="#current-transforms" class="anchor"></a>Current transforms</h2>
-<ul>
-<li>row center</li>
-<li>column center</li>
-<li>double center</li>
-<li>normalized graph laplacian</li>
-<li>regularized graph laplacian</li>
-<li>perturbed graph laplacian</li>
-</ul>
-</div>
-<div id="related-work" class="section level2">
-<h2 class="hasAnchor">
-<a href="#related-work" class="anchor"></a>related work</h2>
-<ul>
-<li>separate transformer based objects like recipes</li>
-<li>Incomplete S4 class in softImpute</li>
-</ul>
-</div>
-</div>
-  </div>
+<p>Once we have <code>L</code> we can do spectral tricks with it. Here we estimate <code>k = 4</code> clusters.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">27</span><span class="op">)</span>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <div class="links">
-<h2>Links</h2>
+<span class="va">k</span> <span class="op">&lt;-</span> <span class="fl">4</span>
+<span class="va">L_svd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/svd.html" class="external-link">svd</a></span><span class="op">(</span><span class="va">L</span>, <span class="va">k</span><span class="op">)</span>
+<span class="va">U</span> <span class="op">&lt;-</span> <span class="va">L_svd</span><span class="op">$</span><span class="va">u</span>
+<span class="va">km</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/kmeans.html" class="external-link">kmeans</a></span><span class="op">(</span><span class="va">U</span>, <span class="va">k</span>, nstart <span class="op">=</span> <span class="fl">50</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/pkg/igraph/man/V.html" class="external-link">V</a></span><span class="op">(</span><span class="va">karate</span><span class="op">)</span><span class="op">$</span><span class="va">color</span> <span class="op">&lt;-</span> <span class="va">km</span><span class="op">$</span><span class="va">cluster</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">karate</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-5-1.png" width="100%"></p>
+</div>
+<div class="section level2">
+<h2 id="related-work">Related work<a class="anchor" aria-label="anchor" href="#related-work"></a>
+</h2>
+<p><a href="https://cran.r-project.org/package=recipes" class="external-link"><code>recipes</code></a> provides non-invertible, composable transformations for tabular data. <a href="https://cran.r-project.org/package=softImpute" class="external-link"><code>softImpute</code></a> provides an <code>Incomplete</code> S4 Matrix class that can be used for double centering sparse matrices.</p>
+</div>
+</div>
+  </main><aside class="col-md-3"><div class="links">
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/RoheLab/invertiforms/">https://​github.com/​RoheLab/​invertiforms/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/RoheLab/invertiforms/issues">https://​github.com/​RoheLab/​invertiforms/​issues</a>
-</li>
+<li><a href="https://github.com/RoheLab/invertiforms/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/RoheLab/invertiforms/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing invertiforms</a></li>
+</ul>
+</div>
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://alexpghayes.com">Alex Hayes</a> <br><small class="roles"> Author, maintainer, copyright holder </small> <a href="https://orcid.org/0000-0002-4985-5160" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<a href="https://alexpghayes.com" class="external-link">Alex Hayes</a> <br><small class="roles"> Author, maintainer, copyright holder </small> <a href="https://orcid.org/0000-0002-4985-5160" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://codecov.io/gh/RoheLab/invertiforms?branch=master"><img src="https://codecov.io/gh/RoheLab/invertiforms/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://github.com/RoheLab/invertiforms/actions"><img src="https://github.com/RoheLab/invertiforms/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://CRAN.R-project.org/package=invertiforms"><img src="https://www.r-pkg.org/badges/version/invertiforms" alt="CRAN status"></a></li>
+<li><a href="https://github.com/RoheLab/invertiforms/actions" class="external-link"><img src="https://github.com/RoheLab/invertiforms/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://app.codecov.io/gh/RoheLab/invertiforms?branch=master" class="external-link"><img src="https://codecov.io/gh/RoheLab/invertiforms/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
 </ul>
 </div>
-</div>
-</div>
 
-
-      <footer><div class="copyright">
-  <p>Developed by <a href="https://alexpghayes.com">Alex Hayes</a>.</p>
+  </aside>
 </div>
 
-<div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+
+    <footer><div class="pkgdown-footer-left">
+  <p></p>
+<p>Developed by <a href="https://alexpghayes.com" class="external-link">Alex Hayes</a>.</p>
 </div>
 
-      </footer>
+<div class="pkgdown-footer-right">
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+</div>
+
+    </footer>
 </div>
 
   
 
+  
 
   </body>
 </html>

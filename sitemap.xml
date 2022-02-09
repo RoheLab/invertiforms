@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://rohelab.github.io/invertiforms/404.html</loc>
+  </url>
+  <url>
+    <loc>https://rohelab.github.io/invertiforms/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://rohelab.github.io/invertiforms/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://rohelab.github.io/invertiforms/authors.html</loc>
+  </url>
+  <url>
     <loc>https://rohelab.github.io/invertiforms/index.html</loc>
   </url>
   <url>
@@ -29,6 +41,9 @@
   </url>
   <url>
     <loc>https://rohelab.github.io/invertiforms/reference/RegularizedLaplacian.html</loc>
+  </url>
+  <url>
+    <loc>https://rohelab.github.io/invertiforms/reference/index.html</loc>
   </url>
   <url>
     <loc>https://rohelab.github.io/invertiforms/reference/inverse_transform.html</loc>
