@@ -21,7 +21,7 @@ Imports:
     glue
 Suggests: 
     covr,
-    testthat,
+    testthat (>= 3.0.0),
     igraph,
     igraphdata
 Encoding: UTF-8
@@ -36,3 +36,4 @@ Collate:
     'RegularizedLaplacian.R'
     'invertiforms-package.R'
     'utils.R'
+Config/testthat/edition: 3
