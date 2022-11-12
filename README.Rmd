@@ -81,7 +81,7 @@ Recovering `A` from `L` is straightforward:
 ```{r}
 A_recovered <- inverse_transform(iform, L)
 
-all.equal(A, A_recovered)
+all.equal(A, A_recovered, check.attributes = FALSE)
 ```
 
 Once we have `L` we can do spectral tricks with it. Here we estimate `k = 2` clusters.

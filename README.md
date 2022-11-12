@@ -103,7 +103,7 @@ Recovering `A` from `L` is straightforward:
 ``` r
 A_recovered <- inverse_transform(iform, L)
 
-all.equal(A, A_recovered)
+all.equal(A, A_recovered, check.attributes = FALSE)
 #> [1] TRUE
 ```
 

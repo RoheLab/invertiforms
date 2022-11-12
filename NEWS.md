@@ -1,5 +1,6 @@
 # invertiforms (development version)
 
+* Fix compatibility with `Matrix` 1.5.2+ (see #8)
 * Added a `NEWS.md` file to track changes to the package.
 
 # invertiforms 0.1.0

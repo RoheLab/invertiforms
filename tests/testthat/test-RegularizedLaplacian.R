@@ -27,6 +27,6 @@ test_that("RegularizedLaplacian recovery", {
   A_recovered <- inverse_transform(iform, A_tilde)
 
   expect_true(
-    all.equal(A, A_recovered)
+    all.equal(A, A_recovered, check.attributes = FALSE)
   )
 })
