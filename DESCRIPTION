@@ -1,6 +1,6 @@
 Package: invertiforms
 Title: Invertible Transforms for Matrices
-Version: 0.1.0.9000
+Version: 0.1.1.9000
 Authors@R: 
     person(given = "Alex",
            family = "Hayes",
@@ -27,7 +27,7 @@ Suggests:
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.1.9000
+RoxygenNote: 7.3.2
 Collate: 
     's4-generics.R'
     'DoubleCenter.R'
