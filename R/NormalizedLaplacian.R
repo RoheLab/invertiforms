@@ -63,10 +63,10 @@ setClass(
 #'   - `NormalizedLaplacian()` creates a [NormalizedLaplacian-class] object.
 #'
 #'   - `transform()` returns the transformed matrix,
-#'     typically as a [Matrix-class].
+#'     typically as a [Matrix::Matrix-class].
 #'
 #'   - `inverse_transform()` returns the inverse transformed matrix,
-#'     typically as a [Matrix-class].
+#'     typically as a [Matrix::Matrix-class].
 #'
 #' @export
 #' @include s4-generics.R

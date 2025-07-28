@@ -26,9 +26,9 @@ and the (absolute) in-degree of each node by \code{tau}. Defaults to
 \itemize{
 \item \code{PerturbedLaplacian()} creates a \linkS4class{PerturbedLaplacian} object.
 \item \code{transform()} returns the transformed matrix,
-typically as a \linkS4class{Matrix}.
+typically as a \link[Matrix:Matrix-class]{Matrix::Matrix}.
 \item \code{inverse_transform()} returns the inverse transformed matrix,
-typically as a \linkS4class{Matrix}.
+typically as a \link[Matrix:Matrix-class]{Matrix::Matrix}.
 }
 }
 \description{
