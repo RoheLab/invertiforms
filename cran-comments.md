@@ -1,3 +1,3 @@
 # Comments
 
-Fix compatibility with Matrix 1.5.2+
+Improve documentation cross-linking per CRAN request.
